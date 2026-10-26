@@ -15,6 +15,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SKILLS_DIR = ROOT / "Skills"
 OUT = ROOT / "claude-skills.json"
+PROVENANCE_FIELDS = (
+    "schema_version",
+    "source_commit",
+    "source_ref",
+    "source_body_sha256",
+)
 
 FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---", re.DOTALL)
 
@@ -51,11 +57,31 @@ def main() -> int:
         print(f"Error: {SKILLS_DIR} not found", file=sys.stderr)
         return 1
 
+    existing_provenance: dict[tuple[str, str], dict] = {}
+    if OUT.is_file():
+        try:
+            previous = json.loads(OUT.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            print(f"Error: {OUT} is not valid JSON: {exc}", file=sys.stderr)
+            return 1
+        for old_entry in previous.get("skills", []):
+            if not isinstance(old_entry, dict):
+                continue
+            key = (old_entry.get("name", ""), old_entry.get("path", ""))
+            provenance = {
+                field: old_entry[field]
+                for field in PROVENANCE_FIELDS
+                if field in old_entry
+            }
+            if provenance:
+                existing_provenance[key] = provenance
+
     manifest: dict = {
         "name": "claude-red",
         "version": "0.3.0",
         "license": "MIT",
         "homepage": "https://github.com/SnailSploit/claude-red",
+        "source_repository": "https://github.com/SnailSploit/Claude-Red.git",
         "categories": {},
         "skills": [],
     }
@@ -76,6 +102,7 @@ def main() -> int:
                 "path": str(skill_md.relative_to(ROOT)),
                 "description": fm.get("description", ""),
             }
+            entry.update(existing_provenance.get((entry["name"], entry["path"]), {}))
             manifest["categories"][category].append(entry["name"])
             manifest["skills"].append(entry)
 
