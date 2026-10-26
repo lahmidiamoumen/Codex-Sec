@@ -1,19 +1,16 @@
-![claude-red banner](/assets/banner.png)
-
 <div align="center">
 
-# claude-red
+# Codex-Sec
 
-**Offensive security skills for Claude — drop-in `SKILL.md` files that turn Claude into a context-aware red team operator.**
+**Codex-ready security assessment skills for authorized security research, red team exercises, and vulnerability analysis.**
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Skills](https://img.shields.io/badge/skills-101-red.svg)](#skill-index)
 [![Categories](https://img.shields.io/badge/categories-24-orange.svg)](#categories)
-[![Stars](https://img.shields.io/github/stars/SnailSploit/claude-red?style=social)](https://github.com/SnailSploit/claude-red)
-[![Forks](https://img.shields.io/github/forks/SnailSploit/claude-red?style=social)](https://github.com/SnailSploit/claude-red/network/members)
-<a href="https://trendshift.io/repositories/40579?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-40579" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/40579/weekly?language=Python" alt="SnailSploit%2FClaude-Red | Trendshift" width="250" height="55"/></a>
+[![Stars](https://img.shields.io/github/stars/lahmidiamoumen/Codex-Sec?style=social)](https://github.com/lahmidiamoumen/Codex-Sec)
+[![Forks](https://img.shields.io/github/forks/lahmidiamoumen/Codex-Sec?style=social)](https://github.com/lahmidiamoumen/Codex-Sec/network/members)
 
-[Overview](#overview) &bull; [Quickstart](#quickstart) &bull; [Categories](#categories) &bull; [Skill Index](#skill-index) &bull; [Roadmap](#roadmap) &bull; [Contributing](#contributing)
+[Overview](#overview) &bull; [Quickstart](#quickstart) &bull; [Categories](#categories) &bull; [Skill Index](#skill-index) &bull; [Contributing](#contributing)
 
 </div>
 
@@ -21,51 +18,38 @@
 
 ## Overview
 
-`claude-red` is a curated library of offensive security skills for the [Claude Skills system](https://docs.claude.com). Each skill is a structured `SKILL.md` file that primes Claude with expert-level methodology for a specific attack surface — from SQL injection to shellcode, EDR evasion to ADCS abuse.
+`Codex-Sec` is a library of security assessment skills designed for Codex. The Codex-ready skills live in `.agents/skills/` and use the standard `SKILL.md` format, with supporting references where needed. The repository includes tools for maintaining and enhancing these Codex skills.
 
-Drop a skill into your Claude environment and it behaves like a domain specialist: it knows the techniques, the tooling, the edge cases, and the escalation paths. Skills load on demand based on conversational triggers — you don't pay context for skills you aren't using.
+Each skill provides focused methodology, validation guidance, interpretation checks, and defensive acceptance criteria. Use these materials only for systems and accounts you are authorized to assess.
 
 **Use cases:** authorized red team engagements, bug bounty triage, security research, CTF preparation, operator training, and methodical attack surface exploration.
 
-**for our actual research using skills -> https://snailsploit.com**
 ---
 
 ## Quickstart
 
-### Claude Skills System (Recommended)
+Clone the repository:
 
-```bash
-git clone https://github.com/SnailSploit/claude-red ~/.claude/skills/claude-red
+```sh
+git clone https://github.com/lahmidiamoumen/Codex-Sec.git
+cd Codex-Sec
 ```
 
-Claude auto-loads matching skills based on conversational triggers (e.g., mentioning SQL injection loads `offensive-sqli`).
+### Use in this repository
 
-To install a single category:
+The Codex-ready skills are in `.agents/skills/`. When this repository is your Codex workspace, that directory provides the skills for the project.
 
-```bash
-git clone --filter=blob:none --sparse https://github.com/SnailSploit/claude-red
-cd claude-red && git sparse-checkout set Skills/web Skills/active-directory
+### Install skills globally on Windows
+
+Copy the skill folders into your Codex user skills directory:
+
+```powershell
+$skillsRoot = Join-Path $env:USERPROFILE ".codex\skills"
+New-Item -ItemType Directory -Force -Path $skillsRoot | Out-Null
+Copy-Item -Path ".\.agents\skills\*" -Destination $skillsRoot -Recurse -Force
 ```
 
-### Claude Code
-
-```bash
-cat Skills/web/offensive-sqli/SKILL.md | claude --system-file -
-
-cat Skills/active-directory/**/SKILL.md | claude --system-file -
-```
-
-### Claude.ai (Manual)
-
-Paste the contents of a `SKILL.md` into a Project's system prompt or prepend it to your conversation.
-
-### Install Script
-
-```bash
-./install.sh                           # interactive
-./install.sh --target ~/.claude/skills # explicit target
-./install.sh --category web            # single category
-```
+Codex's default user skills directory is `%USERPROFILE%\.codex\skills`; if `CODEX_HOME` is set, use its `skills` subdirectory instead.
 
 ---
 
@@ -104,292 +88,272 @@ Paste the contents of a `SKILL.md` into a Project's system prompt or prepend it 
 
 ### Web Application
 
-`Skills/web/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-sqli`](Skills/web/offensive-sqli/SKILL.md) | SQL injection — error-based, blind, OOB, DB-specific payloads, ORM CVEs |
-| [`offensive-xss`](Skills/web/offensive-xss/SKILL.md) | Cross-site scripting — stored, reflected, DOM-based, mutation XSS |
-| [`offensive-ssrf`](Skills/web/offensive-ssrf/SKILL.md) | Server-side request forgery — cloud metadata pivots, filter bypass |
-| [`offensive-ssti`](Skills/web/offensive-ssti/SKILL.md) | Server-side template injection — engine fingerprinting, RCE chains |
-| [`offensive-xxe`](Skills/web/offensive-xxe/SKILL.md) | XML external entity — OOB exfiltration, blind XXE techniques |
-| [`offensive-idor`](Skills/web/offensive-idor/SKILL.md) | Insecure direct object references — enumeration, authorization bypass |
-| [`offensive-file-upload`](Skills/web/offensive-file-upload/SKILL.md) | File upload — extension bypass, polyglot files, webshell deployment |
-| [`offensive-rce`](Skills/web/offensive-rce/SKILL.md) | Remote code execution — command injection, deserialization chains |
-| [`offensive-deserialization`](Skills/web/offensive-deserialization/SKILL.md) | Insecure deserialization — Java, PHP, .NET gadget chains |
-| [`offensive-race-condition`](Skills/web/offensive-race-condition/SKILL.md) | Race conditions — TOCTOU, single-packet attacks, limit bypass |
-| [`offensive-request-smuggling`](Skills/web/offensive-request-smuggling/SKILL.md) | HTTP request smuggling — CL.TE, TE.CL, H2 desync |
-| [`offensive-open-redirect`](Skills/web/offensive-open-redirect/SKILL.md) | Open redirect — OAuth token theft, phishing, SSRF pivots |
-| [`offensive-parameter-pollution`](Skills/web/offensive-parameter-pollution/SKILL.md) | HTTP parameter pollution — WAF bypass, logic confusion |
-| [`offensive-graphql`](Skills/web/offensive-graphql/SKILL.md) | GraphQL — introspection abuse, batching attacks, alias-based IDOR |
-| [`offensive-waf-bypass`](Skills/web/offensive-waf-bypass/SKILL.md) | WAF bypass — encoding tricks, chunked transfer, case mutation |
-| [`offensive-business-logic`](Skills/web/offensive-business-logic/SKILL.md) | Business logic — workflow bypass, pricing abuse, multi-step chains |
-| [`offensive-email-injection`](Skills/web/offensive-email-injection/SKILL.md) | Email header injection — controlled mail-sink validation and recipient boundaries |
-| [`offensive-dom-clobbering`](Skills/web/offensive-dom-clobbering/SKILL.md) | DOM clobbering — named elements shadowing globals and affecting security-sensitive code |
-| [`offensive-ldap-injection`](Skills/web/offensive-ldap-injection/SKILL.md) | LDAP filter and bind injection — context-aware escaping and narrow validation |
-| [`offensive-crlf-injection`](Skills/web/offensive-crlf-injection/SKILL.md) | CRLF injection — response headers, response splitting, and log integrity |
-| [`offensive-path-traversal`](Skills/web/offensive-path-traversal/SKILL.md) | Path traversal and LFI — normalization, confinement, and canary-based checks |
-| [`offensive-ssi`](Skills/web/offensive-ssi/SKILL.md) | SSI/ESI injection — server-side fragment processing and trust boundaries |
-| [`offensive-nosql-injection`](Skills/web/offensive-nosql-injection/SKILL.md) | NoSQL injection — operator and type handling against synthetic records |
-| [`offensive-clickjacking`](Skills/web/offensive-clickjacking/SKILL.md) | Clickjacking — framing controls and safe interaction validation |
-| [`offensive-csrf`](Skills/web/offensive-csrf/SKILL.md) | CSRF — token, origin, cookie, and verified state-change checks |
-| [`offensive-web-cache-poisoning`](Skills/web/offensive-web-cache-poisoning/SKILL.md) | Web cache poisoning and deception — isolated cache namespaces and inert canaries |
-| [`offensive-prototype-pollution`](Skills/web/offensive-prototype-pollution/SKILL.md) | Prototype pollution — untrusted object keys and confirmed downstream effects |
-| [`offensive-cors`](Skills/web/offensive-cors/SKILL.md) | CORS — origin matching, credential behavior, preflight, and cache variation |
+| [`offensive-sqli`](.agents/skills/offensive-sqli/SKILL.md) | SQL injection — error-based, blind, OOB, DB-specific payloads, ORM CVEs |
+| [`offensive-xss`](.agents/skills/offensive-xss/SKILL.md) | Cross-site scripting — stored, reflected, DOM-based, mutation XSS |
+| [`offensive-ssrf`](.agents/skills/offensive-ssrf/SKILL.md) | Server-side request forgery — cloud metadata pivots, filter bypass |
+| [`offensive-ssti`](.agents/skills/offensive-ssti/SKILL.md) | Server-side template injection — engine fingerprinting, RCE chains |
+| [`offensive-xxe`](.agents/skills/offensive-xxe/SKILL.md) | XML external entity — OOB exfiltration, blind XXE techniques |
+| [`offensive-idor`](.agents/skills/offensive-idor/SKILL.md) | Insecure direct object references — enumeration, authorization bypass |
+| [`offensive-file-upload`](.agents/skills/offensive-file-upload/SKILL.md) | File upload — extension bypass, polyglot files, webshell deployment |
+| [`offensive-rce`](.agents/skills/offensive-rce/SKILL.md) | Remote code execution — command injection, deserialization chains |
+| [`offensive-deserialization`](.agents/skills/offensive-deserialization/SKILL.md) | Insecure deserialization — Java, PHP, .NET gadget chains |
+| [`offensive-race-condition`](.agents/skills/offensive-race-condition/SKILL.md) | Race conditions — TOCTOU, single-packet attacks, limit bypass |
+| [`offensive-request-smuggling`](.agents/skills/offensive-request-smuggling/SKILL.md) | HTTP request smuggling — CL.TE, TE.CL, H2 desync |
+| [`offensive-open-redirect`](.agents/skills/offensive-open-redirect/SKILL.md) | Open redirect — OAuth token theft, phishing, SSRF pivots |
+| [`offensive-parameter-pollution`](.agents/skills/offensive-parameter-pollution/SKILL.md) | HTTP parameter pollution — WAF bypass, logic confusion |
+| [`offensive-graphql`](.agents/skills/offensive-graphql/SKILL.md) | GraphQL — introspection abuse, batching attacks, alias-based IDOR |
+| [`offensive-waf-bypass`](.agents/skills/offensive-waf-bypass/SKILL.md) | WAF bypass — encoding tricks, chunked transfer, case mutation |
+| [`offensive-business-logic`](.agents/skills/offensive-business-logic/SKILL.md) | Business logic — workflow bypass, pricing abuse, multi-step chains |
+| [`offensive-email-injection`](.agents/skills/offensive-email-injection/SKILL.md) | Email header injection — controlled mail-sink validation and recipient boundaries |
+| [`offensive-dom-clobbering`](.agents/skills/offensive-dom-clobbering/SKILL.md) | DOM clobbering — named elements shadowing globals and affecting security-sensitive code |
+| [`offensive-ldap-injection`](.agents/skills/offensive-ldap-injection/SKILL.md) | LDAP filter and bind injection — context-aware escaping and narrow validation |
+| [`offensive-crlf-injection`](.agents/skills/offensive-crlf-injection/SKILL.md) | CRLF injection — response headers, response splitting, and log integrity |
+| [`offensive-path-traversal`](.agents/skills/offensive-path-traversal/SKILL.md) | Path traversal and LFI — normalization, confinement, and canary-based checks |
+| [`offensive-ssi`](.agents/skills/offensive-ssi/SKILL.md) | SSI/ESI injection — server-side fragment processing and trust boundaries |
+| [`offensive-nosql-injection`](.agents/skills/offensive-nosql-injection/SKILL.md) | NoSQL injection — operator and type handling against synthetic records |
+| [`offensive-clickjacking`](.agents/skills/offensive-clickjacking/SKILL.md) | Clickjacking — framing controls and safe interaction validation |
+| [`offensive-csrf`](.agents/skills/offensive-csrf/SKILL.md) | CSRF — token, origin, cookie, and verified state-change checks |
+| [`offensive-web-cache-poisoning`](.agents/skills/offensive-web-cache-poisoning/SKILL.md) | Web cache poisoning and deception — isolated cache namespaces and inert canaries |
+| [`offensive-prototype-pollution`](.agents/skills/offensive-prototype-pollution/SKILL.md) | Prototype pollution — untrusted object keys and confirmed downstream effects |
+| [`offensive-cors`](.agents/skills/offensive-cors/SKILL.md) | CORS — origin matching, credential behavior, preflight, and cache variation |
 
 ### Auth & Identity
 
-`Skills/auth/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-jwt`](Skills/auth/offensive-jwt/SKILL.md) | JWT attacks — alg:none, key confusion, secret cracking, claim tampering |
-| [`offensive-oauth`](Skills/auth/offensive-oauth/SKILL.md) | OAuth/OIDC — redirect URI abuse, token leakage, PKCE bypass |
-| [`offensive-session-fixation`](Skills/auth/offensive-session-fixation/SKILL.md) | Session lifecycle — identifier rotation, cookie scope, and invalidation |
-| [`offensive-saml`](Skills/auth/offensive-saml/SKILL.md) | SAML/SSO — signature, audience, replay, and identity-mapping checks |
+| [`offensive-jwt`](.agents/skills/offensive-jwt/SKILL.md) | JWT attacks — alg:none, key confusion, secret cracking, claim tampering |
+| [`offensive-oauth`](.agents/skills/offensive-oauth/SKILL.md) | OAuth/OIDC — redirect URI abuse, token leakage, PKCE bypass |
+| [`offensive-session-fixation`](.agents/skills/offensive-session-fixation/SKILL.md) | Session lifecycle — identifier rotation, cookie scope, and invalidation |
+| [`offensive-saml`](.agents/skills/offensive-saml/SKILL.md) | SAML/SSO — signature, audience, replay, and identity-mapping checks |
 
 ### Active Directory
 
-`Skills/active-directory/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-active-directory`](Skills/active-directory/offensive-active-directory/SKILL.md) | AD methodology — Kerberoast, ASREProast, Pre2k, ACL abuse, ADCS, and delegation |
-| [`offensive-netexec`](Skills/active-directory/offensive-netexec/SKILL.md) | NetExec (nxc) — authorized service and authentication checks across SMB, LDAP, WinRM, and RDP |
-| [`offensive-adcs`](Skills/active-directory/offensive-adcs/SKILL.md) | AD CS — template enrollment, CA permissions, and lab-safe ESC validation |
-| [`offensive-kerberoasting`](Skills/active-directory/offensive-kerberoasting/SKILL.md) | Kerberoasting and AS-REP exposure — approved test identities and defender checks |
+| [`offensive-active-directory`](.agents/skills/offensive-active-directory/SKILL.md) | AD methodology — Kerberoast, ASREProast, Pre2k, ACL abuse, ADCS, and delegation |
+| [`offensive-netexec`](.agents/skills/offensive-netexec/SKILL.md) | NetExec (nxc) — authorized service and authentication checks across SMB, LDAP, WinRM, and RDP |
+| [`offensive-adcs`](.agents/skills/offensive-adcs/SKILL.md) | AD CS — template enrollment, CA permissions, and lab-safe ESC validation |
+| [`offensive-kerberoasting`](.agents/skills/offensive-kerberoasting/SKILL.md) | Kerberoasting and AS-REP exposure — approved test identities and defender checks |
 
 ### Wireless
 
-`Skills/wireless/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-wifi`](Skills/wireless/offensive-wifi/SKILL.md) | 802.11 overview — entrypoint for wireless assessments |
-| [`offensive-wifi-recon`](Skills/wireless/offensive-wifi-recon/SKILL.md) | Adapter configuration, monitor mode, multi-band airspace mapping |
-| [`offensive-wpa2-psk`](Skills/wireless/offensive-wpa2-psk/SKILL.md) | WPA2-PSK — handshake capture, PMKID extraction, hashcat cracking |
-| [`offensive-wpa3-sae`](Skills/wireless/offensive-wpa3-sae/SKILL.md) | WPA3-SAE — transition-mode downgrade, Dragonblood, side-channel attacks |
-| [`offensive-wpa-enterprise`](Skills/wireless/offensive-wpa-enterprise/SKILL.md) | 802.1X/EAP — credential relay, evil-twin RADIUS, certificate abuse |
-| [`offensive-wps`](Skills/wireless/offensive-wps/SKILL.md) | WPS — Pixie Dust offline attack, online PIN brute force, vendor PIN prediction |
-| [`offensive-evil-twin`](Skills/wireless/offensive-evil-twin/SKILL.md) | Evil twin — KARMA, Mana, captive portal credential capture, MITM |
-| [`offensive-krack-fragattacks`](Skills/wireless/offensive-krack-fragattacks/SKILL.md) | KRACK and FragAttacks — supplicant vulnerability testing |
-| [`offensive-deauth-disassoc`](Skills/wireless/offensive-deauth-disassoc/SKILL.md) | Deauthentication — targeted/broadcast frames, PMF awareness |
-| [`offensive-bluetooth-ble`](Skills/wireless/offensive-bluetooth-ble/SKILL.md) | Bluetooth LE — GATT enumeration, pairing downgrade, sniffing, MITM |
-| [`offensive-bluetooth-classic`](Skills/wireless/offensive-bluetooth-classic/SKILL.md) | Bluetooth BR/EDR — SDP probing, KNOB attack, BlueBorne, HID spoofing |
-| [`offensive-zigbee-thread-matter`](Skills/wireless/offensive-zigbee-thread-matter/SKILL.md) | 802.15.4 mesh — KillerBee, Touchlink commissioning abuse, ZCL injection |
-| [`offensive-z-wave`](Skills/wireless/offensive-z-wave/SKILL.md) | Z-Wave — S0 key derivation, S2 commissioning attacks, hub pivots |
-| [`offensive-lorawan-sub-ghz`](Skills/wireless/offensive-lorawan-sub-ghz/SKILL.md) | LoRaWAN and sub-GHz — ABP/OTAA attacks, KeeLoq, fixed-code replay, TPMS |
+| [`offensive-wifi`](.agents/skills/offensive-wifi/SKILL.md) | 802.11 overview — entrypoint for wireless assessments |
+| [`offensive-wifi-recon`](.agents/skills/offensive-wifi-recon/SKILL.md) | Adapter configuration, monitor mode, multi-band airspace mapping |
+| [`offensive-wpa2-psk`](.agents/skills/offensive-wpa2-psk/SKILL.md) | WPA2-PSK — handshake capture, PMKID extraction, hashcat cracking |
+| [`offensive-wpa3-sae`](.agents/skills/offensive-wpa3-sae/SKILL.md) | WPA3-SAE — transition-mode downgrade, Dragonblood, side-channel attacks |
+| [`offensive-wpa-enterprise`](.agents/skills/offensive-wpa-enterprise/SKILL.md) | 802.1X/EAP — credential relay, evil-twin RADIUS, certificate abuse |
+| [`offensive-wps`](.agents/skills/offensive-wps/SKILL.md) | WPS — Pixie Dust offline attack, online PIN brute force, vendor PIN prediction |
+| [`offensive-evil-twin`](.agents/skills/offensive-evil-twin/SKILL.md) | Evil twin — KARMA, Mana, captive portal credential capture, MITM |
+| [`offensive-krack-fragattacks`](.agents/skills/offensive-krack-fragattacks/SKILL.md) | KRACK and FragAttacks — supplicant vulnerability testing |
+| [`offensive-deauth-disassoc`](.agents/skills/offensive-deauth-disassoc/SKILL.md) | Deauthentication — targeted/broadcast frames, PMF awareness |
+| [`offensive-bluetooth-ble`](.agents/skills/offensive-bluetooth-ble/SKILL.md) | Bluetooth LE — GATT enumeration, pairing downgrade, sniffing, MITM |
+| [`offensive-bluetooth-classic`](.agents/skills/offensive-bluetooth-classic/SKILL.md) | Bluetooth BR/EDR — SDP probing, KNOB attack, BlueBorne, HID spoofing |
+| [`offensive-zigbee-thread-matter`](.agents/skills/offensive-zigbee-thread-matter/SKILL.md) | 802.15.4 mesh — KillerBee, Touchlink commissioning abuse, ZCL injection |
+| [`offensive-z-wave`](.agents/skills/offensive-z-wave/SKILL.md) | Z-Wave — S0 key derivation, S2 commissioning attacks, hub pivots |
+| [`offensive-lorawan-sub-ghz`](.agents/skills/offensive-lorawan-sub-ghz/SKILL.md) | LoRaWAN and sub-GHz — ABP/OTAA attacks, KeeLoq, fixed-code replay, TPMS |
 
 ### Cloud
 
-`Skills/cloud/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-cloud`](Skills/cloud/offensive-cloud/SKILL.md) | Multi-cloud — privilege escalation, IMDS abuse, cross-account pivots, CSPM evasion |
+| [`offensive-cloud`](.agents/skills/offensive-cloud/SKILL.md) | Multi-cloud — privilege escalation, IMDS abuse, cross-account pivots, CSPM evasion |
 
 ### Mobile
 
-`Skills/mobile/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-mobile`](Skills/mobile/offensive-mobile/SKILL.md) | Android and iOS — Frida hooking, certificate pinning bypass, storage, biometric flaws |
+| [`offensive-mobile`](.agents/skills/offensive-mobile/SKILL.md) | Android and iOS — Frida hooking, certificate pinning bypass, storage, biometric flaws |
 
 ### IoT & Embedded
 
-`Skills/iot/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-iot`](Skills/iot/offensive-iot/SKILL.md) | IoT/OT — hardware interfaces, firmware extraction, RTOS, ICS protocols, MQTT/CoAP |
+| [`offensive-iot`](.agents/skills/offensive-iot/SKILL.md) | IoT/OT — hardware interfaces, firmware extraction, RTOS, ICS protocols, MQTT/CoAP |
 
 ### Infrastructure & Red Team
 
-`Skills/infrastructure/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-initial-access`](Skills/infrastructure/offensive-initial-access/SKILL.md) | Initial access — phishing payloads, drive-by delivery, supply chain vectors (TA0001) |
-| [`offensive-advanced-redteam`](Skills/infrastructure/offensive-advanced-redteam/SKILL.md) | Full kill chain — C2 infrastructure, OPSEC, lateral movement, persistence |
-| [`offensive-edr-evasion`](Skills/infrastructure/offensive-edr-evasion/SKILL.md) | EDR evasion — userland unhooking, indirect syscalls, PPID spoofing |
-| [`offensive-shellcode`](Skills/infrastructure/offensive-shellcode/SKILL.md) | Shellcode — writing, encoding, injection techniques, position-independent code |
-| [`offensive-keylogger-arch`](Skills/infrastructure/offensive-keylogger-arch/SKILL.md) | Input capture — keylogger architecture, hooking mechanisms |
-| [`offensive-windows-mitigations`](Skills/infrastructure/offensive-windows-mitigations/SKILL.md) | Windows mitigations — ACG, CIG, CFG, CET bypass techniques |
-| [`offensive-windows-boundaries`](Skills/infrastructure/offensive-windows-boundaries/SKILL.md) | Windows boundary defeat — sandbox escape, integrity level bypass |
+| [`offensive-initial-access`](.agents/skills/offensive-initial-access/SKILL.md) | Initial access — phishing payloads, drive-by delivery, supply chain vectors (TA0001) |
+| [`offensive-advanced-redteam`](.agents/skills/offensive-advanced-redteam/SKILL.md) | Full kill chain — C2 infrastructure, OPSEC, lateral movement, persistence |
+| [`offensive-edr-evasion`](.agents/skills/offensive-edr-evasion/SKILL.md) | EDR evasion — userland unhooking, indirect syscalls, PPID spoofing |
+| [`offensive-shellcode`](.agents/skills/offensive-shellcode/SKILL.md) | Shellcode — writing, encoding, injection techniques, position-independent code |
+| [`offensive-keylogger-arch`](.agents/skills/offensive-keylogger-arch/SKILL.md) | Input capture — keylogger architecture, hooking mechanisms |
+| [`offensive-windows-mitigations`](.agents/skills/offensive-windows-mitigations/SKILL.md) | Windows mitigations — ACG, CIG, CFG, CET bypass techniques |
+| [`offensive-windows-boundaries`](.agents/skills/offensive-windows-boundaries/SKILL.md) | Windows boundary defeat — sandbox escape, integrity level bypass |
 
 ### Exploit Development
 
-`Skills/exploit-dev/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-exploit-development`](Skills/exploit-dev/offensive-exploit-development/SKILL.md) | Exploit development — stack/heap corruption, ROP chains, mitigation bypass |
-| [`offensive-exploit-dev-course`](Skills/exploit-dev/offensive-exploit-dev-course/SKILL.md) | Structured exploit development curriculum |
-| [`offensive-basic-exploitation`](Skills/exploit-dev/offensive-basic-exploitation/SKILL.md) | Linux binary exploitation — beginner to intermediate, mitigations disabled |
-| [`offensive-crash-analysis`](Skills/exploit-dev/offensive-crash-analysis/SKILL.md) | Crash triage — exploitability assessment, root-cause analysis |
-| [`offensive-mitigations`](Skills/exploit-dev/offensive-mitigations/SKILL.md) | Modern mitigations — ASLR, CFG, CET, PAC analysis and bypass |
-| [`offensive-toctou`](Skills/exploit-dev/offensive-toctou/SKILL.md) | TOCTOU race conditions — binary, kernel, web, and container contexts |
+| [`offensive-exploit-development`](.agents/skills/offensive-exploit-development/SKILL.md) | Exploit development — stack/heap corruption, ROP chains, mitigation bypass |
+| [`offensive-exploit-dev-course`](.agents/skills/offensive-exploit-dev-course/SKILL.md) | Structured exploit development curriculum |
+| [`offensive-basic-exploitation`](.agents/skills/offensive-basic-exploitation/SKILL.md) | Linux binary exploitation — beginner to intermediate, mitigations disabled |
+| [`offensive-crash-analysis`](.agents/skills/offensive-crash-analysis/SKILL.md) | Crash triage — exploitability assessment, root-cause analysis |
+| [`offensive-mitigations`](.agents/skills/offensive-mitigations/SKILL.md) | Modern mitigations — ASLR, CFG, CET, PAC analysis and bypass |
+| [`offensive-toctou`](.agents/skills/offensive-toctou/SKILL.md) | TOCTOU race conditions — binary, kernel, web, and container contexts |
 
 ### Reverse Engineering
 
-`Skills/reverse-engineering/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-reverse-engineering`](Skills/reverse-engineering/offensive-reverse-engineering/SKILL.md) | Binary reverse engineering and malware triage — isolated, reproducible static and dynamic analysis |
+| [`offensive-reverse-engineering`](.agents/skills/offensive-reverse-engineering/SKILL.md) | Binary reverse engineering and malware triage — isolated, reproducible static and dynamic analysis |
 
 ### Fuzzing & Vulnerability Research
 
-`Skills/fuzzing/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-fuzzing`](Skills/fuzzing/offensive-fuzzing/SKILL.md) | Fuzzing — libFuzzer, AFL++, coverage-guided strategies, mutation engines |
-| [`offensive-fuzzing-course`](Skills/fuzzing/offensive-fuzzing-course/SKILL.md) | Vulnerability discovery through fuzzing — structured curriculum |
-| [`offensive-bug-identification`](Skills/fuzzing/offensive-bug-identification/SKILL.md) | Bug identification — code review patterns, static analysis triggers |
-| [`offensive-vuln-classes`](Skills/fuzzing/offensive-vuln-classes/SKILL.md) | Vulnerability taxonomy — real-world examples, classification frameworks |
+| [`offensive-fuzzing`](.agents/skills/offensive-fuzzing/SKILL.md) | Fuzzing — libFuzzer, AFL++, coverage-guided strategies, mutation engines |
+| [`offensive-fuzzing-course`](.agents/skills/offensive-fuzzing-course/SKILL.md) | Vulnerability discovery through fuzzing — structured curriculum |
+| [`offensive-bug-identification`](.agents/skills/offensive-bug-identification/SKILL.md) | Bug identification — code review patterns, static analysis triggers |
+| [`offensive-vuln-classes`](.agents/skills/offensive-vuln-classes/SKILL.md) | Vulnerability taxonomy — real-world examples, classification frameworks |
 
 ### Reconnaissance
 
-`Skills/recon/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-osint`](Skills/recon/offensive-osint/SKILL.md) | OSINT tooling — recon-ng, theHarvester, Maltego, Spiderfoot, and public-channel analysis |
-| [`offensive-osint-methodology`](Skills/recon/offensive-osint-methodology/SKILL.md) | OSINT methodology — structured intelligence collection and analysis |
-| [`offensive-subdomain-takeover`](Skills/recon/offensive-subdomain-takeover/SKILL.md) | Dangling DNS and service references — passive verification before any claim test |
+| [`offensive-osint`](.agents/skills/offensive-osint/SKILL.md) | OSINT tooling — recon-ng, theHarvester, Maltego, Spiderfoot, and public-channel analysis |
+| [`offensive-osint-methodology`](.agents/skills/offensive-osint-methodology/SKILL.md) | OSINT methodology — structured intelligence collection and analysis |
+| [`offensive-subdomain-takeover`](.agents/skills/offensive-subdomain-takeover/SKILL.md) | Dangling DNS and service references — passive verification before any claim test |
 
 ### API Security
 
-`Skills/api/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-api-security`](Skills/api/offensive-api-security/SKILL.md) | API testing — OWASP API Top 10, BOLA, BFLA, mass assignment, rate limiting |
-| [`offensive-api-abuse`](Skills/api/offensive-api-abuse/SKILL.md) | API business logic — endpoint chaining, batching abuse, webhook hijacking |
-| [`offensive-mass-assignment`](Skills/api/offensive-mass-assignment/SKILL.md) | Mass assignment — DTO allowlists and independent persistence verification |
+| [`offensive-api-security`](.agents/skills/offensive-api-security/SKILL.md) | API testing — OWASP API Top 10, BOLA, BFLA, mass assignment, rate limiting |
+| [`offensive-api-abuse`](.agents/skills/offensive-api-abuse/SKILL.md) | API business logic — endpoint chaining, batching abuse, webhook hijacking |
+| [`offensive-mass-assignment`](.agents/skills/offensive-mass-assignment/SKILL.md) | Mass assignment — DTO allowlists and independent persistence verification |
 
 ### Container & Kubernetes
 
-`Skills/container/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-container-escape`](Skills/container/offensive-container-escape/SKILL.md) | Container breakout — privileged mode, Docker socket, capabilities, runc CVEs |
-| [`offensive-k8s-attacks`](Skills/container/offensive-k8s-attacks/SKILL.md) | Kubernetes attacks — RBAC abuse, etcd access, kubelet API, pod escape, CRD exploitation |
+| [`offensive-container-escape`](.agents/skills/offensive-container-escape/SKILL.md) | Container breakout — privileged mode, Docker socket, capabilities, runc CVEs |
+| [`offensive-k8s-attacks`](.agents/skills/offensive-k8s-attacks/SKILL.md) | Kubernetes attacks — RBAC abuse, etcd access, kubelet API, pod escape, CRD exploitation |
 
 ### CI/CD & Pipeline
 
-`Skills/cicd/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-cicd-pipeline`](Skills/cicd/offensive-cicd-pipeline/SKILL.md) | CI/CD exploitation — GitHub Actions injection, Jenkins RCE, GitLab CI abuse |
-| [`offensive-cicd-secrets`](Skills/cicd/offensive-cicd-secrets/SKILL.md) | CI/CD secrets — environment variable extraction, vault misconfigs, runner token abuse |
-| [`offensive-claude-code-action`](Skills/cicd/offensive-claude-code-action/SKILL.md) | Claude Code Action security — untrusted PR input, token scope, and tool permissions |
+| [`offensive-cicd-pipeline`](.agents/skills/offensive-cicd-pipeline/SKILL.md) | CI/CD exploitation — GitHub Actions injection, Jenkins RCE, GitLab CI abuse |
+| [`offensive-cicd-secrets`](.agents/skills/offensive-cicd-secrets/SKILL.md) | CI/CD secrets — environment variable extraction, vault misconfigs, runner token abuse |
+| [`offensive-claude-code-action`](.agents/skills/offensive-claude-code-action/SKILL.md) | Claude Code Action security — untrusted PR input, token scope, and tool permissions |
 
 ### Cryptography
 
-`Skills/crypto/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-crypto-attacks`](Skills/crypto/offensive-crypto-attacks/SKILL.md) | Cryptographic attacks — padding oracle, ECB manipulation, hash extension, weak PRNG |
-| [`offensive-tls-attacks`](Skills/crypto/offensive-tls-attacks/SKILL.md) | TLS/SSL attacks — POODLE, DROWN, Heartbleed, pinning bypass, 0-RTT replay |
-| [`offensive-padding-oracle`](Skills/crypto/offensive-padding-oracle/SKILL.md) | CBC padding-oracle review — synthetic ciphertexts and distinguishable failures |
+| [`offensive-crypto-attacks`](.agents/skills/offensive-crypto-attacks/SKILL.md) | Cryptographic attacks — padding oracle, ECB manipulation, hash extension, weak PRNG |
+| [`offensive-tls-attacks`](.agents/skills/offensive-tls-attacks/SKILL.md) | TLS/SSL attacks — POODLE, DROWN, Heartbleed, pinning bypass, 0-RTT replay |
+| [`offensive-padding-oracle`](.agents/skills/offensive-padding-oracle/SKILL.md) | CBC padding-oracle review — synthetic ciphertexts and distinguishable failures |
 
 ### Privilege Escalation
 
-`Skills/privesc/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-linux-privesc`](Skills/privesc/offensive-linux-privesc/SKILL.md) | Linux privilege escalation — SUID, capabilities, sudo, cron, kernel exploits |
-| [`offensive-windows-privesc`](Skills/privesc/offensive-windows-privesc/SKILL.md) | Windows privilege escalation — Potato family, service misconfigs, DLL hijacking, UAC bypass |
+| [`offensive-linux-privesc`](.agents/skills/offensive-linux-privesc/SKILL.md) | Linux privilege escalation — SUID, capabilities, sudo, cron, kernel exploits |
+| [`offensive-windows-privesc`](.agents/skills/offensive-windows-privesc/SKILL.md) | Windows privilege escalation — Potato family, service misconfigs, DLL hijacking, UAC bypass |
 
 ### Post-Exploitation
 
-`Skills/post-exploitation/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-lateral-movement`](Skills/post-exploitation/offensive-lateral-movement/SKILL.md) | Lateral movement — PTH, PTT, NTLM relay, WMI/WinRM/DCOM, tunneling |
-| [`offensive-persistence`](Skills/post-exploitation/offensive-persistence/SKILL.md) | Persistence — registry, scheduled tasks, WMI subscriptions, ticket forgery, PAM backdoors |
-| [`offensive-data-exfiltration`](Skills/post-exploitation/offensive-data-exfiltration/SKILL.md) | Data exfiltration — DNS/HTTPS/ICMP tunneling, cloud staging, steganography |
+| [`offensive-lateral-movement`](.agents/skills/offensive-lateral-movement/SKILL.md) | Lateral movement — PTH, PTT, NTLM relay, WMI/WinRM/DCOM, tunneling |
+| [`offensive-persistence`](.agents/skills/offensive-persistence/SKILL.md) | Persistence — registry, scheduled tasks, WMI subscriptions, ticket forgery, PAM backdoors |
+| [`offensive-data-exfiltration`](.agents/skills/offensive-data-exfiltration/SKILL.md) | Data exfiltration — DNS/HTTPS/ICMP tunneling, cloud staging, steganography |
 
 ### Forensics & C2
 
-`Skills/forensics/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-anti-forensics`](Skills/forensics/offensive-anti-forensics/SKILL.md) | Anti-forensics — log manipulation, timestomping, ADS abuse, memory cleanup |
-| [`offensive-c2-frameworks`](Skills/forensics/offensive-c2-frameworks/SKILL.md) | C2 tradecraft — Cobalt Strike, Sliver, Mythic, Havoc, redirectors, domain fronting |
+| [`offensive-anti-forensics`](.agents/skills/offensive-anti-forensics/SKILL.md) | Anti-forensics — log manipulation, timestomping, ADS abuse, memory cleanup |
+| [`offensive-c2-frameworks`](.agents/skills/offensive-c2-frameworks/SKILL.md) | C2 tradecraft — Cobalt Strike, Sliver, Mythic, Havoc, redirectors, domain fronting |
 
 ### Supply Chain
 
-`Skills/supply-chain/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-supply-chain`](Skills/supply-chain/offensive-supply-chain/SKILL.md) | Supply chain attacks — dependency confusion, typosquatting, build system compromise |
-| [`offensive-dependency-confusion`](Skills/supply-chain/offensive-dependency-confusion/SKILL.md) | Dependency confusion — npm/PyPI/NuGet/Maven namespace attacks, safe PoC methodology |
+| [`offensive-supply-chain`](.agents/skills/offensive-supply-chain/SKILL.md) | Supply chain attacks — dependency confusion, typosquatting, build system compromise |
+| [`offensive-dependency-confusion`](.agents/skills/offensive-dependency-confusion/SKILL.md) | Dependency confusion — npm/PyPI/NuGet/Maven namespace attacks, safe PoC methodology |
 
 ### Social Engineering
 
-`Skills/social-engineering/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-phishing`](Skills/social-engineering/offensive-phishing/SKILL.md) | Phishing — GoPhish, EvilGinx2, payload delivery, email authentication bypass |
-| [`offensive-social-engineering`](Skills/social-engineering/offensive-social-engineering/SKILL.md) | Social engineering — pretexting, vishing, smishing, physical SE, USB drops |
+| [`offensive-phishing`](.agents/skills/offensive-phishing/SKILL.md) | Phishing — GoPhish, EvilGinx2, payload delivery, email authentication bypass |
+| [`offensive-social-engineering`](.agents/skills/offensive-social-engineering/SKILL.md) | Social engineering — pretexting, vishing, smishing, physical SE, USB drops |
 
 ### Network Attacks
 
-`Skills/network/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-network-attacks`](Skills/network/offensive-network-attacks/SKILL.md) | Network layer attacks — ARP spoofing, LLMNR/NBT-NS poisoning, VLAN hopping, MITM |
+| [`offensive-network-attacks`](.agents/skills/offensive-network-attacks/SKILL.md) | Network layer attacks — ARP spoofing, LLMNR/NBT-NS poisoning, VLAN hopping, MITM |
 
 ### AI Security
 
-`Skills/ai/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-ai-security`](Skills/ai/offensive-ai-security/SKILL.md) | AI/ML security — prompt injection, jailbreaking, RAG poisoning, model extraction |
-| [`offensive-prompt-injection`](Skills/ai/offensive-prompt-injection/SKILL.md) | Prompt injection — model/tool boundaries with synthetic canaries and mock tools |
+| [`offensive-ai-security`](.agents/skills/offensive-ai-security/SKILL.md) | AI/ML security — prompt injection, jailbreaking, RAG poisoning, model extraction |
+| [`offensive-prompt-injection`](.agents/skills/offensive-prompt-injection/SKILL.md) | Prompt injection — model/tool boundaries with synthetic canaries and mock tools |
 
 ### Utility
 
-`Skills/utility/`
+`.agents/skills/`
 
 | Skill | Description |
 |---|---|
-| [`offensive-fast-checking`](Skills/utility/offensive-fast-checking/SKILL.md) | Rapid, rate-limited triage — high-signal checks within explicit scope |
-| [`offensive-reporting`](Skills/utility/offensive-reporting/SKILL.md) | Professional reporting — CVSS scoring, evidence standards, executive summaries |
-
----
-
-## Roadmap
-
-The library is being expanded across multiple phases. See [CHANGELOG.md](CHANGELOG.md) for release history.
-
-| Phase | Focus | Skills | Status |
-|---|---|---:|---|
-| 1 | Internal AD/Windows — split into focused skills | +16 | Planned |
-| 2 | Cloud Identity — Entra, ADFS, Okta, M365 | +10 | Planned |
-| 3 | Wireless — WPA2/3, EAP, BLE, Zigbee, Z-Wave, LoRa, sub-GHz | +12 | Complete |
-| 4 | IoT — UART/JTAG, flash extraction, fault injection, RTOS, ICS | +10 | Planned |
-| 5 | Web Fundamentals — recon, auth bypass, access control, CSRF, CORS | +8 | Planned |
-| 6 | Web Advanced — proto pollution, SAML, OIDC, WebSocket, SSI/ESI | +10 | Planned |
-| 7 | Documentation and tooling polish | — | Complete |
-| 8 | New categories — 10 new domains with 20 skills | +20 | Complete |
-| 9 | Deep rewrites — deserialization, GraphQL, advanced red team, SSTI | — | Complete |
-
-Target: ~130 skills across 23+ categories.
+| [`offensive-fast-checking`](.agents/skills/offensive-fast-checking/SKILL.md) | Rapid, rate-limited triage — high-signal checks within explicit scope |
+| [`offensive-reporting`](.agents/skills/offensive-reporting/SKILL.md) | Professional reporting — CVSS scoring, evidence standards, executive summaries |
 
 ---
 
@@ -403,7 +367,6 @@ Contributions welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for the skill temp
 
 ## Acknowledgements
 
-- **Author:** [Kai Aizen](https://snailsploit.com) (SnailSploit) — GenAI security research
 - **Original Checklists:** [Sahar Shlichov](https://github.com/sahar042/offensive-checklist) — the offensive checklist collection that many of these skills build on
 - **Community:** Pull requests and feedback that keep the library aligned with the evolving threat landscape
 
@@ -411,8 +374,8 @@ Contributions welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for the skill temp
 
 <div align="center">
 
-*Give Claude the right skill and it stops being a chatbot — it becomes an operator.*
+*Purpose-built skills give Codex focused guidance for authorized security assessment work.*
 
-[snailsploit.com](https://snailsploit.com) &bull; [GitHub](https://github.com/SnailSploit) &bull; [Research](https://snailsploit.com/research) &bull; [X](https://x.com/SnailSploit)
+[GitHub repository](https://github.com/lahmidiamoumen/Codex-Sec)
 
 </div>
