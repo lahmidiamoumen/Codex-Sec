@@ -1,0 +1,37 @@
+name: Skill provenance
+
+on:
+  push:
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "23 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Codex-Sec
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Fetch full upstream history and PR heads
+        shell: bash
+        run: |
+          git remote add upstream-claude-red https://github.com/SnailSploit/Claude-Red.git
+          git config --add remote.upstream-claude-red.fetch '+refs/pull/*/head:refs/remotes/upstream-claude-red/pr/*'
+          if [ "$(git rev-parse --is-shallow-repository)" = "true" ]; then
+            git fetch --unshallow --no-tags upstream-claude-red
+          else
+            git fetch --no-tags upstream-claude-red
+          fi
+          if [ "$(git rev-parse --is-shallow-repository)" != "false" ]; then
+            echo "::error::Upstream history is still shallow; full history is required."
+            exit 1
+          fi
+      - name: Verify upstream pins and content hashes
+        run: python tools/verify_skill_provenance.py --no-fetch

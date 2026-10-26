@@ -3,6 +3,7 @@
   "version": "0.3.0",
   "license": "MIT",
   "homepage": "https://github.com/SnailSploit/claude-red",
+  "source_repository": "https://github.com/SnailSploit/Claude-Red.git",
   "categories": {
     "active-directory": [
       "offensive-active-directory",
@@ -157,608 +158,1012 @@
   "skills": [
     {
       "name": "offensive-active-directory",
+      "schema_version": 1,
       "category": "active-directory",
       "path": "Skills/active-directory/offensive-active-directory/SKILL.md",
+      "source_commit": "dcdd0c1092a00b67e375aa3db1ba0586956d2252",
+      "source_ref": "refs/pull/14/head",
+      "source_body_sha256": "c42d07144d0859e2fcab9854a25aaaba34ea9e778a994ea792ab9d8be25a3e76",
       "description": "Assess Active Directory identity, delegation, ACL, and legacy compatibility risks, including Pre-Windows 2000 computer-account exposure."
     },
     {
       "name": "offensive-adcs",
+      "schema_version": 1,
       "category": "active-directory",
       "path": "Skills/active-directory/offensive-adcs/SKILL.md",
+      "source_commit": "0df7698ed630c8161771ca5303a7a80ef10e6cb1",
+      "source_ref": "refs/pull/40/head",
+      "source_body_sha256": "352540f858544e9b1b296ae0d4944a6756d1addd6d4e16ef8877fc9da2f21ce0",
       "description": "Inventory AD CS templates, enrollment paths, and CA permissions to identify certificate-misconfiguration risk in an authorized lab or engagement."
     },
     {
       "name": "offensive-kerberoasting",
+      "schema_version": 1,
       "category": "active-directory",
       "path": "Skills/active-directory/offensive-kerberoasting/SKILL.md",
+      "source_commit": "286767bf049026cd8d6861a8d47d21699f523c67",
+      "source_ref": "refs/pull/39/head",
+      "source_body_sha256": "d76b3157ccc8f0ac54313aa8c23c8b3b448898a2a14cd2f09397a4792a69f7fa",
       "description": "Review service-ticket and pre-authentication exposure and assess service-account password resilience in approved test infrastructure."
     },
     {
       "name": "offensive-netexec",
+      "schema_version": 1,
       "category": "active-directory",
       "path": "Skills/active-directory/offensive-netexec/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "b3e399e46a1eed121f3ca1388fed0b13f71569248729946fa9c9351577488d30",
       "description": "NetExec (nxc) methodology for authorized service and authentication checks across SMB, LDAP, WinRM, and RDP."
     },
     {
       "name": "offensive-ai-security",
+      "schema_version": 1,
       "category": "ai",
       "path": "Skills/ai/offensive-ai-security/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "345b920695dabd22392ee623512df78a8862dd30cde507a02c2d31f9139f2595",
       "description": ""
     },
     {
       "name": "offensive-prompt-injection",
+      "schema_version": 1,
       "category": "ai",
       "path": "Skills/ai/offensive-prompt-injection/SKILL.md",
+      "source_commit": "74825da3adf111c88ecb02c9008504c136a51fc9",
+      "source_ref": "refs/pull/45/head",
+      "source_body_sha256": "1af70489184565f24234016e79cfd247c3fe25370b0fb34e9078fe50931e9cfa",
       "description": "Evaluate how untrusted text, documents, or multimodal inputs influence model behavior and tool boundaries."
     },
     {
       "name": "offensive-api-abuse",
+      "schema_version": 1,
       "category": "api",
       "path": "Skills/api/offensive-api-abuse/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "9197275847685d65501a2ded8015c2124919539443e32bef5db27375febcb9ef",
       "description": "Advanced API exploitation methodology focused on business logic abuse and sophisticated attack patterns that bypass traditional security controls. Covers business logic bypass through API call chaining and workflow manipulation. Addresses GraphQL-specific attacks including batching for credential brute-force, query depth exploitation, and introspection abuse. Includes pagination exploitation for data exfiltration, webhook hijacking for SSRF and data interception, and resource exhaustion through algorithmic complexity attacks. Covers race conditions in API transactions using parallel request techniques. Provides comprehensive JWT manipulation including algorithm confusion, kid injection, jku/x5u abuse, and claim tampering. Details API key leakage detection across source repositories, client-side code, and error messages. Covers undocumented endpoint discovery through predictable naming, debug routes, and source map analysis. Tooling includes Arjun, ParamSpider, jwt_tool, and GraphQL Voyager. Designed for authorized penetration testers targeting business logic layers that automated scanners miss."
     },
     {
       "name": "offensive-api-security",
+      "schema_version": 1,
       "category": "api",
       "path": "Skills/api/offensive-api-security/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "69003fed86fe226f19df78cf7ad9a0c3d5fdd7bc35f2f52d7354f0ba0e71e9cd",
       "description": "Comprehensive API security testing methodology covering REST, gRPC, and WebSocket attack surfaces. Addresses the full OWASP API Security Top 10 2023 including BOLA/IDOR, broken authentication, excessive data exposure, rate limiting bypass, BFLA, mass assignment, SSRF, and security misconfiguration. Includes REST-specific attacks such as HTTP verb tampering, content-type switching, and parameter pollution. Covers gRPC exploitation through protobuf interception, reflection API enumeration, and metadata injection. Addresses WebSocket vulnerabilities including origin bypass, message injection, and cross-site WebSocket hijacking. Provides tooling guidance for Burp Suite, Postman, grpcurl, websocat, and mitmproxy. Each technique includes detection signatures and defensive indicators so you understand what artifacts your testing leaves behind. Designed for authorized penetration testing engagements against API-driven architectures."
     },
     {
       "name": "offensive-mass-assignment",
+      "schema_version": 1,
       "category": "api",
       "path": "Skills/api/offensive-mass-assignment/SKILL.md",
+      "source_commit": "51f73e5d0fa0403704948e99c91c870a5e3afa40",
+      "source_ref": "refs/pull/58/head",
+      "source_body_sha256": "0e42d7df67b3daf49ea21e4f729ce6f5c00a5a9c830a3f46f3323055116af43d",
       "description": "Assess whether an API binds client-controlled fields beyond the action’s intended DTO, and verify persistence through an authorized read-back."
     },
     {
       "name": "offensive-jwt",
+      "schema_version": 1,
       "category": "auth",
       "path": "Skills/auth/offensive-jwt/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "e76cdeba0d623ab8f2eda33ef66ef6d3725760f1afe6194c8d9072c9b3d29754",
       "description": "JWT attack methodology for penetration testers. Covers algorithm confusion (alg:none, RS256→HS256), weak HMAC secret brute force, kid parameter injection (SQLi, path traversal), jku/x5u/jwk header injection, JWKS cache poisoning, JWS/JWE confusion, timing attacks, and mobile JWT storage extraction. Use when testing JWT-based authentication, hunting auth bypass via token manipulation, or evaluating JWT implementation security in web or mobile apps."
     },
     {
       "name": "offensive-oauth",
+      "schema_version": 1,
       "category": "auth",
       "path": "Skills/auth/offensive-oauth/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "1202b700fac05d63cc78c959c084cbcf9c8cb4f3b00be6cec52c7ebc98f0ec52",
       "description": ""
     },
     {
       "name": "offensive-saml",
+      "schema_version": 1,
       "category": "auth",
       "path": "Skills/auth/offensive-saml/SKILL.md",
+      "source_commit": "928e135fe2e17c7454cea774dd457fcb29c01759",
+      "source_ref": "refs/pull/44/head",
+      "source_body_sha256": "e01c7bccb322e77a4cb5c306ed16229b5e5189aa3662a9ccc90b8aaeb46e25a1",
       "description": "Review SAML parsing, signature validation, audience and recipient checks, replay controls, and identity mapping in a test IdP/SP."
     },
     {
       "name": "offensive-session-fixation",
+      "schema_version": 1,
       "category": "auth",
       "path": "Skills/auth/offensive-session-fixation/SKILL.md",
+      "source_commit": "7b7d2092e17a9f27fa4df647bf30633344340f1a",
+      "source_ref": "refs/pull/57/head",
+      "source_body_sha256": "bbef70f870073de6faf4bb9ce95c04df5757677317984086cc952c3693da1dc8",
       "description": "Review session lifecycle controls for identifier rotation, cookie scope, and invalidation across login and privilege changes."
     },
     {
       "name": "offensive-cicd-pipeline",
+      "schema_version": 1,
       "category": "cicd",
       "path": "Skills/cicd/offensive-cicd-pipeline/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "3ce7d47ce2fae7e5a5d6f61dd2831bddc28e6013d817ad0f672f3bb3e4479020",
       "description": "Comprehensive CI/CD pipeline exploitation methodology covering GitHub Actions injection vectors (expression injection via PR titles and issue bodies, workflow_run event abuse, GITHUB_TOKEN over-scoping, composite action supply chain compromise), Jenkins attack paths (Groovy sandbox escapes, script console remote code execution, Java remoting deserialization, credential store dumping, shared library injection), GitLab CI exploitation (YAML anchor injection, runner registration token abuse, CI variable extraction, protected branch bypass via merge request pipelines), and Azure DevOps pipeline agent compromise with service connection theft. Includes artifact poisoning techniques across all platforms, tooling guidance for gato and jenkins-attack-framework, and maps to MITRE ATT&CK T1195.002 (Supply Chain Compromise: Compromise Software Supply Chain). Covers enumeration of pipeline configurations, privilege escalation from contributor to code execution, lateral movement through pipeline trust boundaries, and persistence via modified workflow definitions. Each technique section provides working exploitation code, detection indicators, and defensive countermeasures."
     },
     {
       "name": "offensive-cicd-secrets",
+      "schema_version": 1,
       "category": "cicd",
       "path": "Skills/cicd/offensive-cicd-secrets/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "4502319b480272b49ba87e3645df6695d7f4f97789de2e99aed8b77a5753f0c6",
       "description": "Comprehensive secrets extraction methodology targeting CI/CD environments across all major platforms. Covers environment variable extraction from build contexts, exploitation of vault and secrets-manager misconfigurations (HashiCorp Vault, AWS Secrets Manager, Azure Key Vault, GCP Secret Manager), runner and agent token abuse for lateral movement, OIDC federation attacks exploiting trust relationships between CI/CD providers and cloud platforms, build log leakage analysis for inadvertently exposed credentials, cache poisoning techniques for credential exfiltration, platform-specific credential store exploitation (GitHub Actions secrets, GitLab CI variables, Jenkins credential providers), service connection and service account abuse in Azure DevOps and GCP, and Docker registry credential theft from build environments. Maps to MITRE ATT&CK T1552 (Unsecured Credentials) and its sub-techniques. Each section provides enumeration procedures, extraction techniques, and post-exploitation pivoting guidance for using recovered secrets to expand access."
     },
     {
       "name": "offensive-claude-code-action",
+      "schema_version": 1,
       "category": "cicd",
       "path": "Skills/cicd/offensive-claude-code-action/SKILL.md",
+      "source_commit": "9edaaff90698d8064632ba221a17ef3a87e85734",
+      "source_ref": "refs/pull/37/head",
+      "source_body_sha256": "2097a1c23c8aa4f51dd650fac14988736f87d2d5dd402e72058c0dc9cf9db68c",
       "description": "Assess AI coding-agent workflows for untrusted input handling, least-privilege permissions, and safe tool execution."
     },
     {
       "name": "offensive-cloud",
+      "schema_version": 1,
       "category": "cloud",
       "path": "Skills/cloud/offensive-cloud/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "926e0bc0d3c8644dd8adad7661d1fec0fa15a7b39e8c440a6d413470958d3cc2",
       "description": "Cloud security attack methodology covering AWS, Azure, and GCP. Includes credential harvesting (IMDS, ~/.aws, env vars, leaked CI secrets, instance roles), enumeration with cloud-specific tools (pacu, ScoutSuite, Prowler, ROADtools, gcp_enum), privilege escalation paths (IAM PassRole, AssumeRole chains, Lambda/Functions privilege flips, Azure Owner-on-self, GCP serviceAccountTokenCreator), persistence techniques (IAM user/key creation, AAD app registration, GCP svc account key creation, EventBridge/Logic Apps backdoors), data exfiltration (S3/Blob/GCS, snapshot share, RDS/CosmosDB/Cloud SQL exfil), cloud-native lateral movement (cross-account assume, Azure AD multi-tenant, GCP project hierarchy), serverless attacks (Lambda env vars, layer hijack, Step Functions), Kubernetes-on-cloud (EKS/AKS/GKE-specific paths to node and AWS metadata), and CSPM evasion (CloudTrail blind spots, GuardDuty mute, Sentinel rule shaping). Use when the engagement scope is cloud accounts, when you've stolen cloud credentials, or when assessing cloud posture."
     },
     {
       "name": "offensive-container-escape",
+      "schema_version": 1,
       "category": "container",
       "path": "Skills/container/offensive-container-escape/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "99825c788f6c74a0d99ee6330f19ef1d43d953ebe907d23914059c7558bc8e9d",
       "description": "Container escape and breakout techniques targeting Docker, containerd, and Podman runtimes. Covers privileged container breakout via host filesystem mount and nsenter, Docker socket abuse through /var/run/docker.sock, Linux capability exploitation including CAP_SYS_ADMIN, CAP_SYS_PTRACE, and CAP_NET_ADMIN, cgroup v1 notify_on_release escape, runc CVEs such as CVE-2019-5736 and CVE-2024-21626 Leaky Vessels, kernel exploits from within containers, and Dockerfile misconfigurations like --privileged and host namespace sharing. Includes enumeration with capsh, amicontained, deepce, CDK, and nsenter. Maps to MITRE ATT&CK T1611 Escape to Host. Use this skill when the engagement scope includes container breakout, Docker escape, container privilege escalation, host access from container, or when you land inside a containerized environment and need to reach the underlying host."
     },
     {
       "name": "offensive-k8s-attacks",
+      "schema_version": 1,
       "category": "container",
       "path": "Skills/container/offensive-k8s-attacks/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "e604e590cd23597b9212491087862cccaa73618018d304b32bc061d4a633bc73",
       "description": "Kubernetes cluster attack techniques covering the full attack lifecycle from initial foothold in a pod to cluster-wide compromise. Covers service account token theft and impersonation, RBAC misconfiguration exploitation including wildcard permissions and privilege escalation via role binding, direct etcd access for secret extraction, kubelet API abuse on port 10250 and read-only port 10255, pod escape via hostPID hostNetwork and hostPath volume mounts, Kubernetes secrets enumeration and decoding, admission controller bypass techniques, network policy bypass and lateral movement, cloud metadata service access from pods for credential theft on AWS EKS GCP GKE and Azure AKS, CRD and operator abuse for persistence, and node compromise via DaemonSet deployment. Tools include kubectl, kube-hunter, peirates, kubeaudit, kdigger, kubeletctl. Maps to MITRE ATT&CK T1609 Container Administration Command, T1610 Deploy Container, T1613 Container and Resource Discovery. Use this skill when assessing Kubernetes clusters, attacking from within a compromised pod, exploiting RBAC or kubelet misconfigurations, or performing cloud-native lateral movement."
     },
     {
       "name": "offensive-crypto-attacks",
+      "schema_version": 1,
       "category": "crypto",
       "path": "Skills/crypto/offensive-crypto-attacks/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "b4d47fa65b4d3d55ef140ba8a0df394ea6cd4e00b653d2d75265fded84b5468a",
       "description": "Systematic methodology for identifying and exploiting cryptographic implementation weaknesses in real-world applications. Covers padding oracle attacks against CBC-mode ciphers with PKCS7 padding (Vaudenay's original attack through modern padbuster automation), ECB mode exploitation including block cut-and-paste and byte-at-a-time decryption, hash length extension attacks against SHA1/SHA256/MD5-based MACs using HashPump, RSA vulnerabilities including small public exponent, common modulus, Bleichenbacher PKCS1v1.5 padding oracle, and Coppersmith's method for partial key recovery. Addresses weak PRNG exploitation targeting time-seeded generators and Mersenne Twister MT19937 state recovery from observed outputs, timing side-channel attacks against comparison operations, nonce reuse in AES-GCM leading to authentication key recovery, and key derivation weaknesses including insufficient iteration counts and missing salts. Primary tooling includes padbuster, RsaCtfTool, hashpump, and PyCryptodome for building custom exploit payloads. Maps to CWE-327 (Use of a Broken or Risky Cryptographic Algorithm), CWE-328 (Use of Weak Hash), and CWE-330 (Use of Insufficiently Random Values). Emphasizes black-box identification of vulnerable implementations before transitioning to targeted exploitation."
     },
     {
       "name": "offensive-padding-oracle",
+      "schema_version": 1,
       "category": "crypto",
       "path": "Skills/crypto/offensive-padding-oracle/SKILL.md",
+      "source_commit": "f2b4517b46d7d5f9f0958622d59bc33434534d92",
+      "source_ref": "refs/pull/48/head",
+      "source_body_sha256": "da207bfb4110d9cd35ccdb040bdc24ce27896661ef2229f1d84b26a6e81aa314",
       "description": "Assess whether ciphertext handling leaks distinguishable padding or decryption validity in an isolated cryptographic test."
     },
     {
       "name": "offensive-tls-attacks",
+      "schema_version": 1,
       "category": "crypto",
       "path": "Skills/crypto/offensive-tls-attacks/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "c55230d72479a153f7b39b8bfe072a2c1163a9443340fc4930a0a9cb644c9455",
       "description": "Comprehensive methodology for auditing and exploiting TLS/SSL implementations and misconfigurations across network services and mobile applications. Covers protocol downgrade attacks including POODLE (CVE-2014-3566) against SSLv3 CBC padding, DROWN (CVE-2016-0800) cross-protocol attack leveraging SSLv2 export ciphers to decrypt TLS sessions, and FREAK (CVE-2015-0204) forcing RSA export-grade key exchange. Addresses BEAST (CVE-2011-3389) exploiting CBC IV predictability in TLS 1.0, CRIME (CVE-2012-4929) and BREACH targeting TLS-level and HTTP-level compression oracles respectively, and Heartbleed (CVE-2014-0160) for OpenSSL memory disclosure. Covers certificate validation bypass techniques for applications with improper hostname verification or chain validation, certificate pinning bypass using Frida and Objection for mobile application interception, HSTS bypass via NTP manipulation and subdomain exploitation, TLS 1.3 0-RTT replay attacks against non-idempotent endpoints, mutual TLS (mTLS) authentication attacks including client certificate theft and relay, and Certificate Transparency log monitoring for reconnaissance. Primary tooling includes testssl.sh for comprehensive TLS auditing, sslyze for Python-integrated scanning, sslscan for quick cipher enumeration, and tlsx for high-speed TLS probing at scale. Maps to CWE-295 (Improper Certificate Validation), CWE-319 (Cleartext Transmission of Sensitive Information), and CWE-757 (Selection of Less-Secure Algorithm During Negotiation)."
     },
     {
       "name": "offensive-basic-exploitation",
+      "schema_version": 1,
       "category": "exploit-dev",
       "path": "Skills/exploit-dev/offensive-basic-exploitation/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "92508b7739895c04e4cdb9b671d6c06f678f9d490b2a1bb23fd1ee5dc14ad028",
       "description": ""
     },
     {
       "name": "offensive-crash-analysis",
+      "schema_version": 1,
       "category": "exploit-dev",
       "path": "Skills/exploit-dev/offensive-crash-analysis/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "43212963900033f563cb23ad323d5a56d507142d2caeebba55b8c50605681a32",
       "description": ""
     },
     {
       "name": "offensive-exploit-dev-course",
+      "schema_version": 1,
       "category": "exploit-dev",
       "path": "Skills/exploit-dev/offensive-exploit-dev-course/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "b3b87666645d63b80a5ba071dc1d7136b677073a40f5cabfd2fb578d2b0b7fa0",
       "description": ""
     },
     {
       "name": "offensive-exploit-development",
+      "schema_version": 1,
       "category": "exploit-dev",
       "path": "Skills/exploit-dev/offensive-exploit-development/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "22ae77955883399b00bfd4b10909f403869efc4c4b49e81ba065f1e477b83cce",
       "description": ""
     },
     {
       "name": "offensive-mitigations",
+      "schema_version": 1,
       "category": "exploit-dev",
       "path": "Skills/exploit-dev/offensive-mitigations/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "cbd789c1bf8fd8110c511150169fc5b98e097a9419aa41647e35ced477b3a388",
       "description": ""
     },
     {
       "name": "offensive-toctou",
+      "schema_version": 1,
       "category": "exploit-dev",
       "path": "Skills/exploit-dev/offensive-toctou/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "10b504b1cfb3d199bb31e17459ef1aab46d2a14c94e8ffeef997f0cf601ef1d8",
       "description": "Time-of-Check / Time-of-Use (TOCTOU) race condition exploitation methodology across binary, kernel, filesystem, web, and container layers. Covers symbolic-link races (open/access/stat split), file-descriptor races, fopen/realpath traversal races, /proc and procfs races, FUSE-backed slow-fs races to widen the window, ptrace and signal races, kernel double-fetch / userspace pointer races, container/runc/symlink escape primitives, kubernetes admission/authz TOCTOU, web auth-vs-authz TOCTOU, JWT-claim TOCTOU at gateway vs service, payment/idempotency races, and modern race-amplification techniques (single-packet attack, slow loris, FUSE pause, cgroup freeze, scheduler shaping). Use when you've identified a 'check then act' pattern in code, when fuzzing for race conditions, or when exploiting concurrency bugs in privileged binaries / kernel / orchestrators."
     },
     {
       "name": "offensive-anti-forensics",
+      "schema_version": 1,
       "category": "forensics",
       "path": "Skills/forensics/offensive-anti-forensics/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "8fef427cf3c5cf445e82bf630802eb64278f58c05ed8f1db0c9fa0de3e4229af",
       "description": "Anti-forensics and evidence destruction techniques for red team operators conducting authorized engagements. Covers log clearing on Windows (wevtutil, Clear-EventLog, ETW provider patching) and Linux (journal truncation, utmp/wtmp binary editing, syslog manipulation), timestamp manipulation via Timestomp and SetMACE to defeat timeline analysis, filesystem-level anti-forensics including NTFS Alternate Data Streams for payload hiding and secure deletion with sdelete/shred, memory artifact removal to counter live forensics, disk artifact manipulation targeting MFT entries and USN journal records, network forensics evasion through encrypted C2 channels and DNS-over-HTTPS tunneling, and anti-VM/sandbox detection to avoid dynamic analysis environments. Tools: Timestomp, wevtutil, sdelete, shred, MimiPenguin, Invoke-Phant0m. Aligns to MITRE ATT&CK T1070 (Indicator Removal), T1027 (Obfuscated Files or Information), T1497 (Virtualization/Sandbox Evasion). Each technique includes the forensic artifact it targets, the destruction or manipulation method, and the defender perspective so operators understand detection gaps they must account for."
     },
     {
       "name": "offensive-c2-frameworks",
+      "schema_version": 1,
       "category": "forensics",
       "path": "Skills/forensics/offensive-c2-frameworks/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "19b07b6966b499334b4f31d1a74c256b558d9f173e7e7db64f0c056fc9df9869",
       "description": "Command and Control framework deployment, configuration, and operational tradecraft for red team engagements. Covers Cobalt Strike (malleable C2 profiles, Beacon types HTTP/HTTPS/DNS/SMB, Beacon Object Files for in-memory execution, sleep and jitter tuning, named pipe pivoting), Sliver (implant generation across mTLS/WireGuard/DNS transport, operator multiplayer mode, armory extensions), Mythic (agent ecosystem with Apollo/Poseidon/Medusa, C2 profile configuration, translation containers), Havoc (Demon agent with sleep obfuscation via Ekko/Zilean, indirect syscalls, dotnet inline execution), Metasploit (msfvenom payload generation, multi/handler staging, Meterpreter post-exploitation modules), redirector architecture using Apache mod_rewrite and Nginx, domain fronting through CDN providers, DNS-based C2 for restrictive network egress, and TLS certificate management for infrastructure OPSEC. Tools: Cobalt Strike, Sliver, Mythic, Havoc, Metasploit Framework. Aligns to MITRE ATT&CK T1071 (Application Layer Protocol), T1573 (Encrypted Channel), T1090 (Proxy/Connection Proxy)."
     },
     {
       "name": "offensive-bug-identification",
+      "schema_version": 1,
       "category": "fuzzing",
       "path": "Skills/fuzzing/offensive-bug-identification/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "b80715679fc455a96585cbe25005b107963daa0c10e08df743b2ddbc017bc272",
       "description": ""
     },
     {
       "name": "offensive-fuzzing",
+      "schema_version": 1,
       "category": "fuzzing",
       "path": "Skills/fuzzing/offensive-fuzzing/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "43b1f66af0cfdf28716d650fa794246fa413959b2580eee7ca7d5ff6ea9c425a",
       "description": "Practical offensive fuzzing methodology covering target identification, fuzzer selection (AFL++, libFuzzer, Honggfuzz, Boofuzz, syzkaller), harness writing, corpus curation, mutation strategies, coverage measurement, and crash triage. Use when setting up or running fuzz campaigns against any target: file parsers, network protocols, kernel drivers, EDR engines, embedded firmware, or language runtimes."
     },
     {
       "name": "offensive-fuzzing-course",
+      "schema_version": 1,
       "category": "fuzzing",
       "path": "Skills/fuzzing/offensive-fuzzing-course/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "1094410fb2a89843e9f8d8447d1d28602fc5fd36b29481cdd45b47b5c768acdd",
       "description": ""
     },
     {
       "name": "offensive-vuln-classes",
+      "schema_version": 1,
       "category": "fuzzing",
       "path": "Skills/fuzzing/offensive-vuln-classes/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "85b7eeeded746de0962b27ed14984f483cb21d1444843e21bc531aba221985e0",
       "description": ""
     },
     {
       "name": "offensive-advanced-redteam",
+      "schema_version": 1,
       "category": "infrastructure",
       "path": "Skills/infrastructure/offensive-advanced-redteam/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "5346a9e6a829b948e80868b4f6b2bb860b493c46e5672b61fb845a159e1feee2",
       "description": "Comprehensive red team operations methodology covering full engagement lifecycle from planning through reporting. Addresses engagement scoping and rules of engagement negotiation, multi-tier C2 infrastructure design with redirectors and domain fronting, malleable traffic profiles and beacon tradecraft, OPSEC discipline including attribution avoidance and indicator management, EDR and AMSI evasion techniques using direct syscalls and unhooking, data collection with chain-of-custody controls, and structured reporting with purple team debrief workflows. Covers assumed-breach, external-to-internal, insider threat, and hybrid physical-cyber engagement scenarios with MITRE ATT&CK mapping throughout. Targets operators planning or executing adversary simulation engagements against mature defenders."
     },
     {
       "name": "offensive-edr-evasion",
+      "schema_version": 1,
       "category": "infrastructure",
       "path": "Skills/infrastructure/offensive-edr-evasion/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "e0131dc7f57fc7bd93bf17ec9e0eac4a228b07cb7afff35a7c45abb8a4c2958c",
       "description": ""
     },
     {
       "name": "offensive-initial-access",
+      "schema_version": 1,
       "category": "infrastructure",
       "path": "Skills/infrastructure/offensive-initial-access/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "f7752f0940b2f985aeb4a352f6a77d9ef8bc268fd22c1faa6b40e22ce00cf965",
       "description": ""
     },
     {
       "name": "offensive-keylogger-arch",
+      "schema_version": 1,
       "category": "infrastructure",
       "path": "Skills/infrastructure/offensive-keylogger-arch/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "856f21f14f6645cd2c566f2504fe1ac42d23be51d21be80e966ed6b36509449c",
       "description": ""
     },
     {
       "name": "offensive-shellcode",
+      "schema_version": 1,
       "category": "infrastructure",
       "path": "Skills/infrastructure/offensive-shellcode/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "88e50f50474a35f5296a0892267c3171d8ee06e34ed1246dc01bc6dbbdc15dd1",
       "description": "Shellcode development reference for offensive security engagements. Use when writing custom x86/x64 shellcode, implementing position-independent code (PIC), building shellcode loaders, evading AV/EDR detection, or converting PE files to shellcode. Covers null byte avoidance, API hashing, encoder/decoder patterns, staged vs stageless payloads, Windows PEB traversal, and cross-platform shellcode techniques."
     },
     {
       "name": "offensive-windows-boundaries",
+      "schema_version": 1,
       "category": "infrastructure",
       "path": "Skills/infrastructure/offensive-windows-boundaries/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "a31cb44295c46284a3742f923f6a55175fb3d9a6f4f90e69fa3cab70bd4983c2",
       "description": ""
     },
     {
       "name": "offensive-windows-mitigations",
+      "schema_version": 1,
       "category": "infrastructure",
       "path": "Skills/infrastructure/offensive-windows-mitigations/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "de31c49a6ecaa77f9fb4c351aef94bf661de03a4cac24b58b63fb7c31cca3b8f",
       "description": ""
     },
     {
       "name": "offensive-iot",
+      "schema_version": 1,
       "category": "iot",
       "path": "Skills/iot/offensive-iot/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "e0296b4f457815049b0a66e7d67e8f24f90b1777a87aabac243c849d76d91e5b",
       "description": "IoT and embedded device security testing methodology. Covers hardware reconnaissance (UART, JTAG, SWD, SPI flash, I2C EEPROM, eMMC chip-off), firmware acquisition (vendor portals, OTA capture, flash dump, binwalk extraction), firmware analysis (filesystem mounting, binary triage, hardcoded secrets, default credential discovery), bootloader attacks (U-Boot console, secure-boot bypass, fault injection), runtime attacks on embedded Linux/RTOS (busybox CVEs, MTD writes, /dev/mem), wireless protocol attacks (Zigbee, BLE, Z-Wave, LoRaWAN, Thread/Matter, sub-GHz), MQTT/CoAP/Modbus/BACnet/OPC-UA exploitation, mobile companion app analysis, cloud-IoT API abuse, and side-channel/glitching basics. Use for IoT pentest, smart-home assessment, ICS/OT testing, or embedded vulnerability research."
     },
     {
       "name": "offensive-mobile",
+      "schema_version": 1,
       "category": "mobile",
       "path": "Skills/mobile/offensive-mobile/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "80161f5d58ec5002415d9548b76a367bc807ef1be88e9dcdbe4b0c99118ceaa0",
       "description": "Mobile (Android + iOS) application penetration testing methodology. Covers static analysis (apktool/jadx for Android, class-dump/Hopper/IDA for iOS), dynamic instrumentation with Frida and Objection, SSL pinning bypass strategies, root/jailbreak detection bypass, deep-link / URL-scheme abuse, exported component attacks (Android activities, services, providers, receivers; iOS XPC, URL schemes, universal links), insecure data storage (SharedPrefs, KeyStore misuse, NSUserDefaults, Keychain ACL bypass), IPC / Intent redirection, WebView vulnerabilities (JavaScriptInterface, file:// access), Firebase/AWS/Azure misconfiguration leakage, mobile API testing, biometric/Face ID/Touch ID bypass, app-cloning and runtime patching, and mobile malware/RAT analysis primitives. Use for mobile pentest, bug bounty mobile triage, or app-store reconnaissance."
     },
     {
       "name": "offensive-network-attacks",
+      "schema_version": 1,
       "category": "network",
       "path": "Skills/network/offensive-network-attacks/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "d8068c97f0b89dc123bec6da853afb2a814d700dbd76c300fb129ca190cbf67f",
       "description": "Dense description covering ARP spoofing, LLMNR/NBT-NS/mDNS poisoning, DNS poisoning, MITM attacks, VLAN hopping, DHCP attacks, 802.1X/NAC bypass, IPv6 attacks. Tools: Bettercap, Responder, mitm6, Ettercap, Wireshark. MITRE T1557, T1040. Use when conducting internal network assessments or testing Layer 2/3 attack surface."
     },
     {
       "name": "offensive-data-exfiltration",
+      "schema_version": 1,
       "category": "post-exploitation",
       "path": "Skills/post-exploitation/offensive-data-exfiltration/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "fe065e5787a11865e0303c777370a96101eb8fd57161dad254cab293a19d0eaa",
       "description": "Dense methodology covering DNS exfiltration (dnscat2, iodine, dns2tcp), HTTPS tunneling (domain fronting, CDN abuse, legitimate service channels), ICMP tunneling (icmpsh, ptunnel-ng), cloud storage dead drops (S3 presigned URLs, Azure Blob SAS tokens, GCS signed URLs), email-based exfil (SMTP, EWS, draft method), steganography (image, audio, document metadata), encoding/encryption (base64 chunking, XOR, AES), covert channels (custom protocol tunneling, HTTP header encoding, timing channels), and data staging (compression, splitting, encryption). Tools: dnscat2, iodine, dns2tcp, PacketWhisper, chisel, stunnel, icmpsh, ptunnel-ng, steghide, zsteg, OpenStego. MITRE ATT&CK: T1048 (Exfiltration Over Alternative Protocol), T1041 (Exfiltration Over C2 Channel), T1567 (Exfiltration Over Web Service), T1029 (Scheduled Transfer), T1030 (Data Transfer Size Limits), T1132 (Data Encoding), T1001 (Data Obfuscation). Use when planning or executing data exfiltration during authorized red team engagements or post-exploitation."
     },
     {
       "name": "offensive-lateral-movement",
+      "schema_version": 1,
       "category": "post-exploitation",
       "path": "Skills/post-exploitation/offensive-lateral-movement/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "a909494f2f118c2c037c2916b8b186126490a33817302099021354689240050c",
       "description": "Comprehensive lateral movement tradecraft for authorized red team engagements covering credential-based movement (pass-the-hash, pass-the-ticket, overpass-the-hash), NTLM relay attacks (ntlmrelayx with PetitPotam, DFSCoerce, PrinterBug coercion), remote execution protocols (WMI, WinRM, DCOM, PsExec and alternatives), RDP session hijacking, and network pivoting through tunneling tools (chisel, ligolo-ng, SSH tunnels, SOCKS proxies). Provides operator-ready command sequences for mimikatz, crackmapexec/netexec, impacket suite, and evil-winrm with emphasis on OPSEC considerations, SMB signing bypass, and detection evasion. Maps to MITRE ATT&CK T1021 (Remote Services), T1550 (Use Alternate Authentication Material), and sub-techniques. Includes defender-perspective detection guidance for blue team awareness and a rapid engagement cheatsheet for common lateral movement scenarios encountered during internal penetration tests and assumed-breach exercises."
     },
     {
       "name": "offensive-persistence",
+      "schema_version": 1,
       "category": "post-exploitation",
       "path": "Skills/post-exploitation/offensive-persistence/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "0e9c91d76503fd9ea0d293bfc7cad2b3fa6652c64e9763183e876abad4111be8",
       "description": "Comprehensive persistence tradecraft for authorized red team engagements covering Windows and Linux mechanisms. Windows techniques include registry Run/RunOnce keys, scheduled tasks, WMI event subscriptions, DLL search order hijacking, COM object hijacking, Startup folder drops, service creation, Security Support Provider (SSP) DLL injection, and Active Directory persistence (AdminSDHolder abuse, DCShadow, Golden Ticket, Silver Ticket, Skeleton Key, SID History injection). Linux techniques include cron and at jobs, systemd timers and services, SSH authorized_keys injection, shell profile backdoors (.bashrc/.bash_profile), PAM module backdoors, LD_PRELOAD hijacking, kernel module rootkits, web shells, and Git hook abuse. Provides operator-ready command sequences for SharPersist, Impacket ticketer, schtasks, sc.exe, crontab, and systemctl with OPSEC considerations for each method. Maps to MITRE ATT&CK T1547 (Boot or Logon Autostart), T1053 (Scheduled Task/Job), T1546 (Event Triggered Execution), T1556 (Modify Authentication Process), and sub-techniques. Includes detection indicators and a rapid engagement cheatsheet."
     },
     {
       "name": "offensive-linux-privesc",
+      "schema_version": 1,
       "category": "privesc",
       "path": "Skills/privesc/offensive-linux-privesc/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "58984f2f4a714f08a30111be882251299b0c81d10a38aa10846a47680dda603f",
       "description": "Comprehensive Linux privilege escalation methodology for offensive security engagements. Covers the full attack surface from a low-privilege shell to root: SUID/SGID binary abuse via GTFOBins, Linux capabilities exploitation (cap_setuid, cap_dac_override, cap_dac_read_search), sudo misconfigurations including NOPASSWD rules and Baron Samedit (CVE-2021-3156), cron job abuse through writable scripts, PATH hijacking, and wildcard injection with tar/rsync/chown. Includes writable /etc/passwd attacks, NFS no_root_squash exploitation, kernel exploits (DirtyPipe CVE-2022-0847, DirtyCow CVE-2016-5195, PwnKit CVE-2021-4034), Docker group container escapes, LD_PRELOAD and LD_LIBRARY_PATH hijacking for shared library injection, systemd service misconfigurations, and sensitive file enumeration for credential harvesting. Integrates automated enumeration with LinPEAS, linux-exploit-suggester, pspy for process monitoring, and GTFOBins for binary exploitation. Each technique includes detection signatures and defender-side visibility to support purple team operations. Maps to MITRE ATT&CK T1548 (Abuse Elevation Control Mechanism) and related sub-techniques. Designed for authorized penetration testing, red team engagements, and CTF competitions where you hold a low-privilege shell and need to escalate to root."
     },
     {
       "name": "offensive-windows-privesc",
+      "schema_version": 1,
       "category": "privesc",
       "path": "Skills/privesc/offensive-windows-privesc/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "a723cdb00392268f335dfe4a994ad3834f1c8e79625cffcf6d373a8ddf0df613",
       "description": "Comprehensive Windows privilege escalation methodology for offensive security engagements. Covers the full attack surface from a standard user shell to NT AUTHORITY\\\\SYSTEM: token impersonation via SeImpersonate and SeAssignPrimaryToken privileges using JuicyPotato, PrintSpoofer, GodPotato, SweetPotato, and RoguePotato; service misconfigurations including unquoted service paths, weak service DACLs, writable service binaries, and insecure service creation permissions; AlwaysInstallElevated MSI exploitation; DLL hijacking through search order abuse, phantom DLL loading, and writable PATH directory injection; UAC bypass techniques via fodhelper.exe, eventvwr.exe, CMSTP, and environment variable manipulation; scheduled task abuse for writable task actions and new task creation; registry autorun exploitation for persistence and escalation; PrintNightmare (CVE-2021-34527) for remote and local privilege escalation; and credential harvesting from SAM database extraction, DPAPI blob decryption, LSA secret dumping, and Credential Manager enumeration. Integrates automated enumeration with WinPEAS, PowerUp, SharpUp, Seatbelt, and BeRoot. Each technique includes detection signatures and defender-side visibility for purple team operations. Maps to MITRE ATT&CK T1548 (Abuse Elevation Control Mechanism) and T1574 (Hijack Execution Flow). Designed for authorized penetration testing, red team engagements, and CTF competitions where you hold a standard user shell and need to escalate to SYSTEM or local Administrator."
     },
     {
       "name": "offensive-osint",
+      "schema_version": 1,
       "category": "recon",
       "path": "Skills/recon/offensive-osint/SKILL.md",
+      "source_commit": "74d557c5e70c042ba55dd72567c9a5e63c28eb17",
+      "source_ref": "refs/pull/35/head",
+      "source_body_sha256": "267f2b9de7b2b53399622362b98b28fe1f1cbde0824bd45a3bbf280228375dee",
       "description": "Organize public-source intelligence gathering with source provenance, confidence tracking, and privacy-aware reporting."
     },
     {
       "name": "offensive-osint-methodology",
+      "schema_version": 1,
       "category": "recon",
       "path": "Skills/recon/offensive-osint-methodology/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "f03929b1e6f39bae288afbb301fced0d596a9f96fdeb257dd7a990f6ec336c6c",
       "description": ""
     },
     {
       "name": "offensive-subdomain-takeover",
+      "schema_version": 1,
       "category": "recon",
       "path": "Skills/recon/offensive-subdomain-takeover/SKILL.md",
+      "source_commit": "4be398254951cd5e8cfa4f1b2351ab4955dae31c",
+      "source_ref": "refs/pull/47/head",
+      "source_body_sha256": "c51b2c435980f4e28027d6e8cfa90f144e989964ec696d48923117c918af3c8a",
       "description": "Identify dangling DNS or third-party service references and measure trust exposure without taking control of a live resource."
     },
     {
       "name": "offensive-reverse-engineering",
+      "schema_version": 1,
       "category": "reverse-engineering",
       "path": "Skills/reverse-engineering/offensive-reverse-engineering/SKILL.md",
+      "source_commit": "f1d2a40305e48015b5519eddbf28481f98c56e11",
+      "source_ref": "refs/pull/38/head",
+      "source_body_sha256": "b2f28e37dd40ef4328e03abcca882e3079e932f5368c316a35c9daf4e5977972",
       "description": "Provide a disciplined triage workflow for authorized binaries, combining static and dynamic evidence while tracking assumptions."
     },
     {
       "name": "offensive-phishing",
+      "schema_version": 1,
       "category": "social-engineering",
       "path": "Skills/social-engineering/offensive-phishing/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "10d6aad8cba048a7a7766daaf5ed30d82d4f710b9597e4783048e0f6688d484d",
       "description": "Phishing campaign execution methodology for authorized red team engagements. Covers end-to-end campaign lifecycle: infrastructure provisioning (GoPhish, SMTP relay configuration, domain acquisition and aging, SPF/DKIM/DMARC alignment), payload delivery vectors (Office macro weaponization, HTA droppers, ISO/IMG container abuse, LNK shortcut hijacking, OneNote embedded payloads, HTML smuggling), email authentication bypass techniques (SPF softfail exploitation, DKIM replay attacks, display name spoofing, homoglyph and cousin domain registration), credential harvesting with MFA bypass (EvilGinx2 transparent proxy, Modlishka session relay, pixel-perfect HTML cloning), spear phishing pretext development informed by OSINT, email security gateway evasion, QR code phishing (quishing), and callback phishing for initial access. Integrates with GoPhish for campaign management, EvilGinx2 for adversary-in-the-middle credential interception, King Phisher for template design, and the Social Engineering Toolkit for payload generation. Maps to MITRE ATT&CK T1566 (Phishing) and sub-techniques T1566.001 (Spearphishing Attachment), T1566.002 (Spearphishing Link), T1566.003 (Spearphishing via Service). Assumes you have written authorization and a defined scope before any campaign execution."
     },
     {
       "name": "offensive-social-engineering",
+      "schema_version": 1,
       "category": "social-engineering",
       "path": "Skills/social-engineering/offensive-social-engineering/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "ff2f9b9543f732680828d1f1203633eb52840e628fdf38c13aa623fda273c478",
       "description": "Social engineering attack techniques beyond email phishing for authorized red team and physical penetration testing engagements. Covers pretexting methodology (persona creation, authority and urgency psychological triggers, rapport building), vishing (voice phishing via caller ID spoofing, IVR system exploitation, VoIP infrastructure setup with Twilio/Asterisk), smishing (SMS-based phishing, carrier gateway abuse, short code impersonation), physical social engineering (tailgating and piggybacking, RFID badge cloning with Proxmark3, lock picking and bypass, dumpster diving for sensitive documents), USB drop attacks (Rubber Ducky keystroke injection, Bash Bunny multi-vector payloads, O.MG cable covert implants, BadUSB firmware attacks), watering hole attack planning and execution, and OSINT-driven targeting (LinkedIn harvesting, organizational chart reconstruction, employee pattern analysis). Integrates with the Social Engineering Toolkit for attack automation, Proxmark3 for RFID/NFC cloning, USB Rubber Ducky and Bash Bunny for physical payload delivery, and BeEF for browser exploitation. Maps to MITRE ATT&CK T1598 (Phishing for Information), T1566 (Phishing), T1091 (Replication Through Removable Media), and T1189 (Drive-by Compromise). All techniques require explicit written authorization and defined rules of engagement."
     },
     {
       "name": "offensive-dependency-confusion",
+      "schema_version": 1,
       "category": "supply-chain",
       "path": "Skills/supply-chain/offensive-dependency-confusion/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "425a7ad1aedf17daca8fbe430af22d39f2911c72f81fd3846fe73f42a095a165",
       "description": "Deep-dive offensive methodology for dependency confusion and namespace attacks across all major package ecosystems. Covers npm scope confusion exploiting the gap between public and private scoped packages and .npmrc misconfigurations where registry mappings fail to pin internal scopes exclusively. Addresses PyPI namespace attacks through --extra-index-url resolution ordering, NuGet feed priority exploitation when multiple package sources are configured without clear directives, Maven and Gradle repository ordering where artifact resolution traverses repositories sequentially, Go module proxy abuse through GOPROXY misconfiguration, Ruby gems namespace squatting, and Docker image tag confusion with unqualified image references. Provides complete proof-of-concept methodology using safe callbacks including DNS canary via interactsh or Burp Collaborator and HTTP beacon with no destructive payload. Covers reconnaissance techniques for discovering internal package names through GitHub repository analysis, error message harvesting, JavaScript source map extraction, lock file parsing, job postings mentioning internal tools, and package manifest inspection. Directly references and builds upon Alex Birsan's seminal 2021 dependency confusion research. Each ecosystem section includes registry-specific exploitation mechanics, configuration vulnerabilities, and defensive countermeasures for engagement reporting."
     },
     {
       "name": "offensive-supply-chain",
+      "schema_version": 1,
       "category": "supply-chain",
       "path": "Skills/supply-chain/offensive-supply-chain/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "c4560d28e457481cb7d0cc8cc77be3abe678f50dd8dba6375652cb4df1d53e20",
       "description": "Comprehensive offensive methodology for software supply chain attacks covering the full kill chain from reconnaissance through exploitation. Addresses dependency confusion across npm, PyPI, and NuGet ecosystems where internal registry override allows an attacker to inject malicious packages that shadow private dependencies. Covers typosquatting techniques for popular packages, compromised package injection via maintainer account takeover or social engineering, and build system attacks through Makefile injection, setup.py install hooks, and npm postinstall scripts. Extends into CI/CD artifact tampering where build outputs are replaced or modified in transit, code signing abuse through stolen or self-signed certificates, upstream repository compromise via commit injection or force-push to trusted repos, and container image supply chain attacks including base image trojaning and registry confusion. Maps to MITRE ATT&CK T1195.001 (Supply Chain Compromise: Compromise Software Dependencies and Development Tools) and T1195.002 (Supply Chain Compromise: Compromise Software Supply Chain). Integrates tooling such as confused for dependency confusion scanning and dependency-check for known vulnerable component detection. Each technique section provides reproducible proof-of-concept patterns, detection guidance for defenders, and engagement-safe execution notes for authorized red team operations."
     },
     {
       "name": "offensive-fast-checking",
+      "schema_version": 1,
       "category": "utility",
       "path": "Skills/utility/offensive-fast-checking/SKILL.md",
+      "source_commit": "89676ecc5b56c3f56d5dace9439c1cac39b4fa74",
+      "source_ref": "refs/pull/18/head",
+      "source_body_sha256": "e35bdd8e2ba219f2b911900c0ef6d5100f3a31f062276d8283f14af37b0e30ae",
       "description": "Run a short, rate-limited assessment triage that prioritizes safe, high-signal checks within an explicit scope."
     },
     {
       "name": "offensive-reporting",
+      "schema_version": 1,
       "category": "utility",
       "path": "Skills/utility/offensive-reporting/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "11d0c12cd1466086da9db489a733605226301e400d3d83cbaf7e1437ae2bfa17",
       "description": "Penetration test and red team report writing methodology. Covers executive summary structuring (risk-led narrative for non-technical readers), technical finding format (title, severity, affected scope, narrative, reproduction steps, impact, remediation, references), CVSS v3.1 / v4.0 scoring with vector justification, OWASP risk rating, evidence hygiene (redacting credentials, hashing client data, time-stamping every action), screenshot and PoC artifact management, finding chain narratives, scope/limitations/assumptions documentation, retest evidence and remediation tracking, deliverable formats (PDF, DOCX, HTML, JSON for SIEM ingestion), client-customer-deliverable separation, and common report mistakes (over-CVSSing, undermining the triager, missing the 'so what'). Use at the end of an engagement when authoring a deliverable, when restructuring a draft for executive readability, or when establishing a reusable report template for a consulting practice."
     },
     {
       "name": "offensive-business-logic",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-business-logic/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "d3b61499a1d91ff9bd4e19894e083c90a940ae7914c88b0d7e5dce4c556b2e8f",
       "description": "Business logic vulnerability testing for web/mobile/API engagements. Covers workflow bypass, state machine violations, multi-step process abuse, price/quantity/discount manipulation, currency confusion, coupon stacking, refund/chargeback abuse, race conditions on logic boundaries, parameter tampering for hidden flows, role/tenant boundary violations, time-of-check vs use, anti-automation defeat, fraud-detection evasion, and subscription/quota abuse. Use when scoping an application after surface-level OWASP Top 10 has been covered, or when the asset is a transactional/marketplace/fintech/e-commerce/SaaS app where logic flaws produce direct financial impact."
     },
     {
       "name": "offensive-clickjacking",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-clickjacking/SKILL.md",
+      "source_commit": "19ba5681ba635bed538ef3e432fb38b95e6b6700",
+      "source_ref": "refs/pull/49/head",
+      "source_body_sha256": "c98378e403a1f47874e146305ca53a15545fb84578c904c8b313f49aae9b6230",
       "description": "Evaluate framing protections and whether a harmless framed interaction can mislead a test user."
     },
     {
       "name": "offensive-cors",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-cors/SKILL.md",
+      "source_commit": "d1766322a9d100fd60383a71bc1589fff4784b4a",
+      "source_ref": "refs/pull/41/head",
+      "source_body_sha256": "7d8f0c880c6c1bf484633d537f2d532499ce6678238c2d68f55013888df3e843",
       "description": "Verify exact origin matching, credential behavior, preflight handling, and cache variation for authorized endpoints."
     },
     {
       "name": "offensive-crlf-injection",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-crlf-injection/SKILL.md",
+      "source_commit": "ab9012621d4997f4278c2a188c258a23b57b31d3",
+      "source_ref": "refs/pull/53/head",
+      "source_body_sha256": "d527edb35b1d1bb456f5c16eb5ae234b3cc64ff782e42a6e829f6de85d43859f",
       "description": "Determine whether input can inject response headers, split responses, or corrupt logs in an in-scope application."
     },
     {
       "name": "offensive-csrf",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-csrf/SKILL.md",
+      "source_commit": "7d5cfb303e8bf3ece0ddb042f8987ded9385cc3e",
+      "source_ref": "refs/pull/46/head",
+      "source_body_sha256": "0cedad3a5b0e54a5503b144a5d25da8a0a26c913d6c3d8c87ffa9f7007b265a1",
       "description": "Review whether a cross-site request can trigger a state change using a controlled account and harmless action."
     },
     {
       "name": "offensive-deserialization",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-deserialization/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "3cd33669ac991026768d534122b51a172017984d43e60636ffe749ddb1e4dd21",
       "description": "Insecure deserialization exploitation across Java, PHP, .NET, Python, Node.js, and Ruby. Covers gadget chain construction with ysoserial/phpggc/ysoserial.net, ObjectInputStream and BinaryFormatter sink identification, pickle __reduce__ RCE, phar:// wrapper abuse, Jackson polymorphic typing, Json.NET TypeNameHandling, ViewState tampering, node-serialize IIFE injection, Ruby Marshal.load and YAML.load gadgets, framework-specific chains for Spring/Hibernate/Laravel/Symfony, modern attack surfaces including Kubernetes admission webhooks and message queue consumers, WAF bypass through encoding layers and content-type manipulation, and serialVersionUID/JMX/RMI vectors. Activate when the engagement involves deserialization sinks, serialized data in cookies or request bodies, gadget chain development, magic method abuse, ysoserial payload generation, or any review of marshalling and unmarshalling logic in target applications."
     },
     {
       "name": "offensive-dom-clobbering",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-dom-clobbering/SKILL.md",
+      "source_commit": "7e50e37356b4c77cd7b0d5c99f03848fdafc558c",
+      "source_ref": "refs/pull/55/head",
+      "source_body_sha256": "745021864e08bc8e63e1265ad30e7de6e8d711e949b85b3f7a31c100e6e88dd2",
       "description": "Identify attacker-controlled named elements that shadow expected DOM properties or globals and affect application behavior."
     },
     {
       "name": "offensive-email-injection",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-email-injection/SKILL.md",
+      "source_commit": "d024def4d9f167b0c3032fd2116950ff9e2c492d",
+      "source_ref": "refs/pull/56/head",
+      "source_body_sha256": "0485a635d2b4872d394b095c05fbabe2d870630b1d5a217be3cc3e9ca7ea055f",
       "description": "Assess whether user input can alter email headers, recipients, or message structure in an authorized mail workflow."
     },
     {
       "name": "offensive-file-upload",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-file-upload/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "afd9029b2171fc5ffa70e2dc1deeab62ff362a0006f28ba98f2be475ca666b64",
       "description": ""
     },
     {
       "name": "offensive-graphql",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-graphql/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "9a92610f5acb50c8acdf9da849e4102066035d6c2bf1422017e63414d9068922",
       "description": "Offensive methodology for attacking GraphQL APIs during penetration tests and bug bounty engagements. Covers the full attack lifecycle: endpoint discovery, introspection abuse and blind schema reconstruction when introspection is disabled, authentication and authorization bypass through Relay node IDs and nested object traversal, injection via variables and directives, query batching for brute force and OTP bypass, denial of service through depth bombs and alias amplification, WebSocket subscription hijacking, information disclosure through verbose errors and field suggestion oracles, and file upload abuse via the multipart GraphQL specification. Includes tool-specific guidance for InQL, graphql-cop, CrackQL, BatchQL, Altair, GraphQL Voyager, and clairvoyance. Trigger on: GraphQL, graphql, introspection query, batching attack, query depth, GraphQL injection, GraphQL IDOR, field suggestion, GraphQL auth bypass, GraphQL DoS, GraphQL security, graphql-cop, InQL, CrackQL, BatchQL, Relay node, alias amplification, subscription abuse, multipart upload GraphQL, schema enumeration, __schema, __type."
     },
     {
       "name": "offensive-idor",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-idor/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "03a3002dd293907c507c27107d44368668d26dcfccf6d9a25197b871f58f528e",
       "description": ""
     },
     {
       "name": "offensive-ldap-injection",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-ldap-injection/SKILL.md",
+      "source_commit": "c581b997f76d55b05cbeddf9e322b4ec02bebff3",
+      "source_ref": "refs/pull/54/head",
+      "source_body_sha256": "c43d345c9b13b9f21cf8edf9cf92b6ab5e8e697cdf3b70a850dfc00eeadd309b",
       "description": "Check whether untrusted input changes LDAP filter or bind semantics in an authorized test environment."
     },
     {
       "name": "offensive-nosql-injection",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-nosql-injection/SKILL.md",
+      "source_commit": "572556493c69325702088e91b06c34cac2bf4790",
+      "source_ref": "refs/pull/50/head",
+      "source_body_sha256": "e315d4d50508667a0babb554b3bc94f9bb1caad72c74343c10ceca2f699adece",
       "description": "Check whether input types or query operators alter document-database predicates or authorization decisions."
     },
     {
       "name": "offensive-open-redirect",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-open-redirect/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "3d298ca267a20ad24e687ffc891fc0013bb0edffd223d5e92adb21637d814aeb",
       "description": ""
     },
     {
       "name": "offensive-parameter-pollution",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-parameter-pollution/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "2e592bd02971ea873d74fbb980063ef6ae4e48aa8c10ca69af2b6f5386e318b7",
       "description": ""
     },
     {
       "name": "offensive-path-traversal",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-path-traversal/SKILL.md",
+      "source_commit": "2faf08ee5b3f766aeae249f6d33d91d6c581313a",
+      "source_ref": "refs/pull/52/head",
+      "source_body_sha256": "3b252966881685c30590be3140f8baa954a84ac561b00650690cad503836cfd3",
       "description": "Evaluate path normalization and confinement for file access routes using harmless, known test files."
     },
     {
       "name": "offensive-prototype-pollution",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-prototype-pollution/SKILL.md",
+      "source_commit": "952f0a6f68715fa61f0cd218a2d9a7904ab376e5",
+      "source_ref": "refs/pull/42/head",
+      "source_body_sha256": "0fd5ba9f1d3584a6e797c04edba84aed597dec63880c636736d03a0abc9a7db1",
       "description": "Trace untrusted object keys through merge/clone paths and determine whether prototype mutation affects a benign application property."
     },
     {
       "name": "offensive-race-condition",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-race-condition/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "802e2f87e90c0f43f910e3440c4e57fd732d3ac24622c9ca3211fea62d1c5d27",
       "description": ""
     },
     {
       "name": "offensive-rce",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-rce/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "0a4b1fb7c2ad469c56aa78ecd6ddc26dfd5c485666f31eb2b2db0153cda416ff",
       "description": ""
     },
     {
       "name": "offensive-request-smuggling",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-request-smuggling/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "67c54307ca8760a7c3d270bc708a9675f2c8d474d3715b64567a2e9a32db1f9c",
       "description": ""
     },
     {
       "name": "offensive-sqli",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-sqli/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "ba4cc3e5c3d3192f5106cd47e97787a2d574ba3bdcb5e8af1823404874721262",
       "description": "SQL injection testing skill for offensive security assessments and bug bounty hunting. Covers error-based, UNION-based, boolean/time-based blind, out-of-band, second-order, NoSQL, GraphQL, WebSocket, and JSON-operator SQLi. Includes WAF bypass techniques, database-specific exploitation (MySQL, MSSQL, PostgreSQL, Oracle), cloud-native attack paths, ORM CVE tracking, and SQLmap automation. Use when performing web application SQL injection testing, database enumeration, privilege escalation via SQLi, or assessing injection vectors in APIs and modern stacks."
     },
     {
       "name": "offensive-ssi",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-ssi/SKILL.md",
+      "source_commit": "c9f430c17319fc524efde0a6a359e76aa7f2f421",
+      "source_ref": "refs/pull/51/head",
+      "source_body_sha256": "16ece4b2355a4b87eb1754e45084df96bdd1072c69d33883c82574ca0dfd4d22",
       "description": "Assess whether untrusted input reaches SSI or ESI processing and can alter server-side fragment behavior."
     },
     {
       "name": "offensive-ssrf",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-ssrf/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "44c7b71e1b18a33b9d0f4695d44f8dfa43f1bd6e052116ccab928f6e546daeb5",
       "description": ""
     },
     {
       "name": "offensive-ssti",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-ssti/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "e7b80cddf4cc6b367b4db5bc3a517a7222cd2a1082678171cbc22a230c1ab61b",
       "description": "Dense description covering Server-Side Template Injection across Jinja2, Twig, Freemarker, Velocity, Pebble, Smarty, Mako, Handlebars, ERB, Thymeleaf, EJS, Pug. Engine fingerprinting, filter bypass, blind exploitation, WAF evasion, SSTI-to-RCE chains. Tools: tplmap. CWE-1336. MITRE T1190. Use when testing template rendering endpoints or exploiting template injection for code execution."
     },
     {
       "name": "offensive-waf-bypass",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-waf-bypass/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "0485e6ebf76ff726a024b73c4d1059e2d692ac0d65ff78739101acc7b40a6712",
       "description": ""
     },
     {
       "name": "offensive-web-cache-poisoning",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-web-cache-poisoning/SKILL.md",
+      "source_commit": "d7d04a12f39a7a1bb1b93af5ba51d092709f5c80",
+      "source_ref": "refs/pull/43/head",
+      "source_body_sha256": "bacfa923aa92cbaaade8756c0f04676883639aeaa30decee3b9cac60695992bf",
       "description": "Check cache key behavior and personalized-response handling with isolated cache namespaces and inert canaries."
     },
     {
       "name": "offensive-xss",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-xss/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "6c688051d7e82ebcf3da3ec53aa25f49bdb4e332895d49132e0117462fa3ffb4",
       "description": ""
     },
     {
       "name": "offensive-xxe",
+      "schema_version": 1,
       "category": "web",
       "path": "Skills/web/offensive-xxe/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "b56c15801faa3f3046d86071cab344fdda55dd97de266b06ed0bbaae54659685",
       "description": ""
     },
     {
       "name": "offensive-bluetooth-ble",
+      "schema_version": 1,
       "category": "wireless",
       "path": "Skills/wireless/offensive-bluetooth-ble/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "8e5dd1813ef186d2348b7eb7cc647fdb28ae209bdf33429a4349d15df8c216cb",
       "description": "Bluetooth Low Energy (BLE) attack methodology — GATT enumeration, characteristic read/write without auth, pairing downgrade (Just Works forced), LE Secure Connections bypass, MITM via active relay, sniffing with Sniffle (TI CC1352) / Ubertooth / Frontline, encryption key extraction (LE Legacy Pairing crackable, LE Secure Connections strong), proximity authentication abuse (cars, locks), and companion-app trust analysis. Use for IoT BLE devices, smart locks, fitness trackers, medical devices, BLE beacons, or any device pairing over BLE."
     },
     {
       "name": "offensive-bluetooth-classic",
+      "schema_version": 1,
       "category": "wireless",
       "path": "Skills/wireless/offensive-bluetooth-classic/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "fe8b932aba38ab20ccb77d0ea28bf3929988a3d0e544310d7cef345d682d1bca",
       "description": "Bluetooth Classic (BR/EDR) attack methodology — device discovery, service enumeration via SDP, LMP/L2CAP layer attacks, legacy PIN cracking (BlueBorne / KNOB), Bluetooth file-transfer abuse (BlueSnarfing legacy), unauthenticated profile abuse (HSP, HFP, OPP), and modern relevance against older industrial / automotive / accessory targets. Use when in-scope devices use Bluetooth Classic (Bluetooth ≤ 4.0 BR/EDR) — common in legacy car kits, industrial sensors, older medical devices, and audio accessories."
     },
     {
       "name": "offensive-deauth-disassoc",
+      "schema_version": 1,
       "category": "wireless",
       "path": "Skills/wireless/offensive-deauth-disassoc/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "82a2bd83f7ff1eb647a9250acd3580fc518cf993c94a43af6558176612198b38",
       "description": "Deauthentication and disassociation attacks against 802.11 networks — targeted single-client deauth for handshake capture, broadcast deauth for DoS (with authorization), action-frame attacks bypassing 802.11w (PMF), beacon flooding, mdk4 / aireplay-ng tooling, and rate-limit / PMF-aware operation. Use to coerce client reconnection (handshake capture, evil-twin roaming), as targeted DoS, or to test PMF posture."
     },
     {
       "name": "offensive-evil-twin",
+      "schema_version": 1,
       "category": "wireless",
       "path": "Skills/wireless/offensive-evil-twin/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "d777247b634518a057aee7f8befe8dd4ba67cf691ad7bab5107e32684fc5e731",
       "description": "Evil Twin / KARMA / Mana access point methodology — rogue AP construction with hostapd-mana / wifiphisher / airgeddon, KARMA universal probe response, Mana selective probe response, captive portal phishing, deauth-driven client coercion to attacker AP, MAC randomization defeat via PNL leak analysis, post-association MITM (DNS, ARP, transparent proxy), credential capture for portal/web/SMB, and detection-evasion tactics. Use to coerce client devices onto an attacker-controlled AP, intercept their traffic, harvest credentials, or deliver payloads via captive portal."
     },
     {
       "name": "offensive-krack-fragattacks",
+      "schema_version": 1,
       "category": "wireless",
       "path": "Skills/wireless/offensive-krack-fragattacks/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "f41d0e07efee1a643c7d2c98e656fdcfa5e256295f5015cb67da29ce047d25f8",
       "description": "KRACK (CVE-2017-13077..082) and FragAttacks (CVE-2020-24586..588 + 26139-26147) — key reinstallation, fragmentation, and aggregation attacks against WPA2 supplicants. Covers Vanhoef's test scripts, viability against modern patched stacks (mostly mitigated post-2021), residual unpatched embedded devices and IoT vendors, and the practical limitations of these attacks in modern engagements. Use when assessing legacy supplicants, embedded clients, or vendors with poor patch cadence."
     },
     {
       "name": "offensive-lorawan-sub-ghz",
+      "schema_version": 1,
       "category": "wireless",
       "path": "Skills/wireless/offensive-lorawan-sub-ghz/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "599f1819dc0cbc31b6a98b5abf5b29df0162ce20204d7e5d4bb6d7242d082315",
       "description": "LoRaWAN and sub-GHz (433 / 868 / 915 MHz) attack methodology — LoRaWAN ABP/OTAA join attack, network/session key reuse, frame counter replay, downlink injection on TTN/Helium-style networks, sub-GHz protocol replay (KeeLoq garage doors, fixed-code remotes, TPMS spoofing, smart plug telemetry), HackRF / RTL-SDR / Flipper Zero workflows, signal analysis with Inspectrum / Universal Radio Hacker, and reconstruction of proprietary packet formats. Use for LoRaWAN deployments (smart cities, asset tracking, industrial telemetry), or any wireless device using the unlicensed 433/868/915 MHz bands (garage openers, doorbells, IoT sensors, RC equipment)."
     },
     {
       "name": "offensive-wifi",
+      "schema_version": 1,
       "category": "wireless",
       "path": "Skills/wireless/offensive-wifi/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "eeb63501ed72a71f6838db66d278ccc78327418d2e9f77b2328cb9b6984c13f3",
       "description": "Wireless / 802.11 attack methodology for red team engagements and wireless security assessments. Covers monitor-mode setup, WPA/WPA2-PSK handshake capture and PMKID attacks, WPA3 SAE downgrade and Dragonblood, WPA-Enterprise (EAP) attacks (MSCHAPv2 cracking, EAP-TLS cert theft, evil-twin RADIUS), Karma / Known Beacons / Mana evil twin attacks, captive-portal phishing, KRACK and FragAttacks, WPS Pixie Dust, deauthentication and disassociation attacks, rogue AP construction (hostapd-mana), 802.1X bypass, MAC randomization defeat, BLE/Zigbee/IEEE 802.15.4 sidebands, and Wi-Fi 6/6E/7 considerations. Use when scoping wireless pentest, war-driving an estate, or testing corporate wireless segmentation."
     },
     {
       "name": "offensive-wifi-recon",
+      "schema_version": 1,
       "category": "wireless",
       "path": "Skills/wireless/offensive-wifi-recon/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "e6591a9712b10ca74974623f2a74c2af0f1f66b5ac3a959941f69d0e589711bf",
       "description": "Wi-Fi reconnaissance methodology — adapter selection, monitor mode and packet injection setup, regulatory domain handling, multi-band airspace mapping, hidden SSID discovery, BSSID/ESSID/channel/PMF/encryption fingerprinting, client probe analysis, vendor OUI lookup, war-driving with Kismet/airodump-ng/Wigle, and structured airspace data capture for downstream attacks. Use at the start of any wireless engagement to build the target map before active attacks; covers 2.4 GHz, 5 GHz, and 6 GHz (Wi-Fi 6E) bands and adapter compatibility for each."
     },
     {
       "name": "offensive-wpa2-psk",
+      "schema_version": 1,
       "category": "wireless",
       "path": "Skills/wireless/offensive-wpa2-psk/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "1174e2adc7d796fe2ded3a88526d83fb2dde6745bf721a26f6378bfc03ad258d",
       "description": "WPA/WPA2-PSK attack methodology — four-way handshake capture via targeted deauthentication, PMKID attacks (no client required), hcxdumptool / hcxpcapngtool conversion to hashcat hc22000 format, GPU-accelerated cracking with dictionary, mask, and rule-based attacks, vendor default-PSK generators (UPC, Sky, BT, etc.), 802.11r FT key cracking, opportunistic key cache analysis, and signal-level optimization. Use when the in-scope network is WPA/WPA2 Personal — the most common consumer/SMB encryption mode."
     },
     {
       "name": "offensive-wpa3-sae",
+      "schema_version": 1,
       "category": "wireless",
       "path": "Skills/wireless/offensive-wpa3-sae/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "2145e10426d71841769f8cf4216c72980083e3bd7f3a3446193b3696a9eba94f",
       "description": "WPA3 / SAE (Simultaneous Authentication of Equals) attack methodology — transition-mode (mixed WPA2/WPA3) downgrade, Dragonblood side-channel attacks (CVE-2019-9494, 9495, 13377, 13456), SAE auth flooding for AP CPU exhaustion, Hash-to-Element (H2E) timing analysis, group downgrade, and 6 GHz / Wi-Fi 6E spec implications (PMF mandatory, no transition mode allowed). Use when target advertises WPA3-SAE or WPA3-Personal/Enterprise, or operates in 6 GHz where WPA3 + PMF are required by spec."
     },
     {
       "name": "offensive-wpa-enterprise",
+      "schema_version": 1,
       "category": "wireless",
       "path": "Skills/wireless/offensive-wpa-enterprise/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "df8c718b973c4d21a515552649fc484e8a9d0053e3b2043369fa186b0af14add",
       "description": "WPA/WPA2/WPA3-Enterprise (802.1X / EAP) attack methodology — EAP method identification (PEAP-MSCHAPv2, EAP-TTLS, EAP-TLS, EAP-GTC, EAP-PWD, EAP-FAST), evil-twin RADIUS attacks with eaphammer for credential capture, MSCHAPv2 challenge-response cracking, EAP-TLS client certificate theft paths (DPAPI, NDES, AD CS auto-enrollment), supplicant validation bypass (missing server cert validation, missing CN pinning, BYOD misconfigurations), and post-capture pivots into AD via cracked domain credentials. Use for corporate Wi-Fi engagements where the network is 802.1X authenticated."
     },
     {
       "name": "offensive-wps",
+      "schema_version": 1,
       "category": "wireless",
       "path": "Skills/wireless/offensive-wps/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "05912cf4f1b5ba02323fd123069ee0022da6db0b72caa8267763fe81d6f73445",
       "description": "WPS (Wi-Fi Protected Setup) PIN attack methodology — Pixie Dust offline attack against vulnerable chipsets (Ralink, Realtek, Broadcom, MediaTek), online PIN brute-force with reaver/bully, lockout handling, time-of-day evasion, WPS push-button vulnerability windows, and PIN-to-PSK derivation. Use when a target SOHO router exposes WPS — common on consumer ISP gear, often left enabled by default even when WPS attacks have been known for over a decade."
     },
     {
       "name": "offensive-zigbee-thread-matter",
+      "schema_version": 1,
       "category": "wireless",
       "path": "Skills/wireless/offensive-zigbee-thread-matter/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "f6b214395ab3aa4742c9fbcf648a1eb6d43d6f68893aa348293f97afe66e8b0e",
       "description": "Zigbee, Thread, and Matter mesh-protocol attack methodology — IEEE 802.15.4 sniffing with TI CC2531 / CC2540 / Sonoff Zigbee Dongle E, KillerBee toolkit, Touchlink commissioning abuse with the well-known transport key, replay/injection attacks, Zigbee Cluster Library command abuse for door locks and bulbs, Thread network credential theft, Matter commissioning chain analysis, and 6LoWPAN/IPv6 routing exploitation. Use when targeting smart-home or commercial mesh deployments, Zigbee-based door locks, lighting, or sensor networks."
     },
     {
       "name": "offensive-z-wave",
+      "schema_version": 1,
       "category": "wireless",
       "path": "Skills/wireless/offensive-z-wave/SKILL.md",
+      "source_commit": "a8de813edc9f66f60d44cfe42d47750e89d9930b",
+      "source_ref": "refs/heads/main",
+      "source_body_sha256": "01cea804be548adece8d8bf0403f62f77acd0faaf7e82ea690e1026793f27a33",
       "description": "Z-Wave attack methodology — sniffing with Z-Force / EZ-Wave / RTL-SDR + ZniffMobile, S0 (legacy) network-key derivation flaw and key reuse, S2 (modern) ECDH commissioning analysis, replay/injection on unauthenticated nodes, default-key brute-force on test deployments, and home-automation hub pivots. Use when targeting Z-Wave smart home devices (door locks, sensors, garage controllers) — common in mid-2010s smart home deployments still in production."
     }
   ],

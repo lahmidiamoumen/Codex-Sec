@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/lahmidiamoumen/Codex-Sec/blob/main/tools/claude-skills.schema.json",
+  "title": "Codex-Sec source skills manifest",
+  "type": "object",
+  "required": [
+    "name",
+    "version",
+    "license",
+    "homepage",
+    "source_repository",
+    "categories",
+    "skills",
+    "skill_count",
+    "category_count"
+  ],
+  "properties": {
+    "name": {"type": "string"},
+    "version": {"type": "string"},
+    "license": {"type": "string"},
+    "homepage": {"type": "string", "format": "uri"},
+    "source_repository": {
+      "const": "https://github.com/SnailSploit/Claude-Red.git"
+    },
+    "categories": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {"type": "string"}
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "schema_version",
+          "category",
+          "path",
+          "description",
+          "source_commit",
+          "source_ref",
+          "source_body_sha256"
+        ],
+        "properties": {
+          "name": {"type": "string", "minLength": 1},
+          "schema_version": {"const": 1},
+          "category": {"type": "string", "minLength": 1},
+          "path": {
+            "type": "string",
+            "pattern": "^Skills/(?!.*(?:^|/)\\.\\.(?:/|$)).+/SKILL\\.md$"
+          },
+          "description": {"type": "string"},
+          "source_commit": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{40}$"
+          },
+          "source_ref": {
+            "type": "string",
+            "pattern": "^refs/(?:heads/main|pull/[1-9][0-9]*/head)$"
+          },
+          "source_body_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "skill_count": {"type": "integer", "minimum": 0},
+    "category_count": {"type": "integer", "minimum": 0}
+  },
+  "additionalProperties": true
+}
