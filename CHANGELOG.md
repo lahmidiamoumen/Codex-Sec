@@ -4,9 +4,16 @@ All notable changes to `claude-red` are documented here. The library follows a p
 
 ## [Unreleased]
 
+### Added
+
+- Added 22 focused security skills from upstream PRs #37–#58, including API binding, web and identity testing, AD CS, Kerberoasting, reverse engineering, and Claude Code Action review.
+- Added `claude-skills-enhancements.json` with safe-validation, defender-acceptance, and interpretation notes for 22 new and 3 updated skills.
+
 ### Changed
 
 - Replaced an inactive EXIF viewer reference in `offensive-osint` with a browser-local metadata viewer and added evidence-corroboration guidance.
+- Updated `offensive-active-directory` with guarded Pre-Windows 2000 compatibility review, added the TGScope reference to `offensive-osint`, and removed the dead LostSec link from `offensive-fast-checking`.
+- Updated the skill index and manifest to 101 skills across 24 categories.
 
 ### Planned
 

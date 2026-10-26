@@ -1,6 +1,6 @@
 ---
 name: offensive-active-directory
-description: "Active Directory attack methodology for internal network red team engagements. Covers reconnaissance (BloodHound, PowerView, ADExplorer), credential abuse (Kerberoasting, ASREProasting, NTLM relay, LLMNR/NBT-NS poisoning), privilege escalation (ACL abuse, GPO abuse, unconstrained/constrained delegation), lateral movement (Pass-the-Hash, Pass-the-Ticket, Overpass-the-Hash, WMI/WinRM/PsExec), persistence (Golden/Silver/Diamond Tickets, DCSync, DCShadow, AdminSDHolder, Skeleton Key), forest trust attacks, ADCS abuse (ESC1-ESC15), and modern MDI/Defender for Identity evasion. Use when assessing on-prem AD, hybrid AD/Entra ID environments, or ADCS deployments."
+description: "Active Directory attack methodology for authorized internal assessments. Covers reconnaissance, credential exposure, Pre-Windows 2000 computer-account risks, privilege escalation, lateral movement, persistence, forest trusts, AD CS, and hybrid identity. Use for scoped on-prem AD or Entra ID security reviews."
 ---
 
 # Active Directory — Offensive Testing Methodology
@@ -104,6 +104,31 @@ hashcat -m 13100 tgs.txt rockyou.txt -r OneRuleToRuleThemAll.rule
 impacket-GetNPUsers corp.local/ -usersfile users.txt -dc-ip 10.0.0.1 -no-pass
 hashcat -m 18200 asrep.txt rockyou.txt
 ```
+
+### Pre-Windows 2000 Compatible Access (Pre2k)
+
+Legacy compatibility settings can expose computer-account information or leave
+accounts with weak, hostname-derived passwords. Treat indicators as leads; they
+do not prove that a credential is valid or that an account is exploitable.
+
+Start with read-only review of membership in **Pre-Windows 2000 Compatible
+Access** and the relevant computer-account attributes, such as
+`userAccountControl`, `logonCount`, `servicePrincipalName`, `pwdLastSet`, and
+`whenCreated`. No single attribute is sufficient to establish exposure.
+
+Do not attempt password guesses, request tickets with candidate credentials, or
+use a discovered account to access other services unless that exact activity
+and identity are approved. For validation, use a synthetic computer account in
+an isolated lab or a designated engagement test account. Stop if the check
+could lock an account or expose production credentials.
+
+Defenders should remove unnecessary legacy group membership, retire backward
+compatibility where possible, ensure machine-account secrets rotate, and audit
+stale computer accounts and effective permissions to managed service accounts.
+
+Confirm whether the suspected configuration is effective and whether it creates
+a practical access path before reporting impact. Group membership, a stale
+account, or a weak-password pattern alone is not proof of compromise.
 
 ### LSASS / SAM Dumping
 

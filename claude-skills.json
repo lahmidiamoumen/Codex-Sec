@@ -5,22 +5,30 @@
   "homepage": "https://github.com/SnailSploit/claude-red",
   "categories": {
     "active-directory": [
-      "offensive-active-directory"
+      "offensive-active-directory",
+      "offensive-adcs",
+      "offensive-kerberoasting",
+      "offensive-netexec"
     ],
     "ai": [
-      "offensive-ai-security"
+      "offensive-ai-security",
+      "offensive-prompt-injection"
     ],
     "api": [
       "offensive-api-abuse",
-      "offensive-api-security"
+      "offensive-api-security",
+      "offensive-mass-assignment"
     ],
     "auth": [
       "offensive-jwt",
-      "offensive-oauth"
+      "offensive-oauth",
+      "offensive-saml",
+      "offensive-session-fixation"
     ],
     "cicd": [
       "offensive-cicd-pipeline",
-      "offensive-cicd-secrets"
+      "offensive-cicd-secrets",
+      "offensive-claude-code-action"
     ],
     "cloud": [
       "offensive-cloud"
@@ -31,6 +39,7 @@
     ],
     "crypto": [
       "offensive-crypto-attacks",
+      "offensive-padding-oracle",
       "offensive-tls-attacks"
     ],
     "exploit-dev": [
@@ -80,7 +89,8 @@
     ],
     "recon": [
       "offensive-osint",
-      "offensive-osint-methodology"
+      "offensive-osint-methodology",
+      "offensive-subdomain-takeover"
     ],
     "social-engineering": [
       "offensive-phishing",
@@ -96,19 +106,31 @@
     ],
     "web": [
       "offensive-business-logic",
+      "offensive-clickjacking",
+      "offensive-cors",
+      "offensive-crlf-injection",
+      "offensive-csrf",
       "offensive-deserialization",
+      "offensive-dom-clobbering",
+      "offensive-email-injection",
       "offensive-file-upload",
       "offensive-graphql",
       "offensive-idor",
+      "offensive-ldap-injection",
+      "offensive-nosql-injection",
       "offensive-open-redirect",
       "offensive-parameter-pollution",
+      "offensive-path-traversal",
+      "offensive-prototype-pollution",
       "offensive-race-condition",
       "offensive-rce",
       "offensive-request-smuggling",
       "offensive-sqli",
+      "offensive-ssi",
       "offensive-ssrf",
       "offensive-ssti",
       "offensive-waf-bypass",
+      "offensive-web-cache-poisoning",
       "offensive-xss",
       "offensive-xxe"
     ],
@@ -127,6 +149,9 @@
       "offensive-wps",
       "offensive-z-wave",
       "offensive-zigbee-thread-matter"
+    ],
+    "reverse-engineering": [
+      "offensive-reverse-engineering"
     ]
   },
   "skills": [
@@ -134,13 +159,37 @@
       "name": "offensive-active-directory",
       "category": "active-directory",
       "path": "Skills/active-directory/offensive-active-directory/SKILL.md",
-      "description": "Active Directory attack methodology for internal network red team engagements. Covers reconnaissance (BloodHound, PowerView, ADExplorer), credential abuse (Kerberoasting, ASREProasting, NTLM relay, LLMNR/NBT-NS poisoning), privilege escalation (ACL abuse, GPO abuse, unconstrained/constrained delegation), lateral movement (Pass-the-Hash, Pass-the-Ticket, Overpass-the-Hash, WMI/WinRM/PsExec), persistence (Golden/Silver/Diamond Tickets, DCSync, DCShadow, AdminSDHolder, Skeleton Key), forest trust attacks, ADCS abuse (ESC1-ESC15), and modern MDI/Defender for Identity evasion. Use when assessing on-prem AD, hybrid AD/Entra ID environments, or ADCS deployments."
+      "description": "Assess Active Directory identity, delegation, ACL, and legacy compatibility risks, including Pre-Windows 2000 computer-account exposure."
+    },
+    {
+      "name": "offensive-adcs",
+      "category": "active-directory",
+      "path": "Skills/active-directory/offensive-adcs/SKILL.md",
+      "description": "Inventory AD CS templates, enrollment paths, and CA permissions to identify certificate-misconfiguration risk in an authorized lab or engagement."
+    },
+    {
+      "name": "offensive-kerberoasting",
+      "category": "active-directory",
+      "path": "Skills/active-directory/offensive-kerberoasting/SKILL.md",
+      "description": "Review service-ticket and pre-authentication exposure and assess service-account password resilience in approved test infrastructure."
+    },
+    {
+      "name": "offensive-netexec",
+      "category": "active-directory",
+      "path": "Skills/active-directory/offensive-netexec/SKILL.md",
+      "description": "NetExec (nxc) methodology for authorized service and authentication checks across SMB, LDAP, WinRM, and RDP."
     },
     {
       "name": "offensive-ai-security",
       "category": "ai",
       "path": "Skills/ai/offensive-ai-security/SKILL.md",
       "description": ""
+    },
+    {
+      "name": "offensive-prompt-injection",
+      "category": "ai",
+      "path": "Skills/ai/offensive-prompt-injection/SKILL.md",
+      "description": "Evaluate how untrusted text, documents, or multimodal inputs influence model behavior and tool boundaries."
     },
     {
       "name": "offensive-api-abuse",
@@ -155,6 +204,12 @@
       "description": "Comprehensive API security testing methodology covering REST, gRPC, and WebSocket attack surfaces. Addresses the full OWASP API Security Top 10 2023 including BOLA/IDOR, broken authentication, excessive data exposure, rate limiting bypass, BFLA, mass assignment, SSRF, and security misconfiguration. Includes REST-specific attacks such as HTTP verb tampering, content-type switching, and parameter pollution. Covers gRPC exploitation through protobuf interception, reflection API enumeration, and metadata injection. Addresses WebSocket vulnerabilities including origin bypass, message injection, and cross-site WebSocket hijacking. Provides tooling guidance for Burp Suite, Postman, grpcurl, websocat, and mitmproxy. Each technique includes detection signatures and defensive indicators so you understand what artifacts your testing leaves behind. Designed for authorized penetration testing engagements against API-driven architectures."
     },
     {
+      "name": "offensive-mass-assignment",
+      "category": "api",
+      "path": "Skills/api/offensive-mass-assignment/SKILL.md",
+      "description": "Assess whether an API binds client-controlled fields beyond the action’s intended DTO, and verify persistence through an authorized read-back."
+    },
+    {
       "name": "offensive-jwt",
       "category": "auth",
       "path": "Skills/auth/offensive-jwt/SKILL.md",
@@ -167,6 +222,18 @@
       "description": ""
     },
     {
+      "name": "offensive-saml",
+      "category": "auth",
+      "path": "Skills/auth/offensive-saml/SKILL.md",
+      "description": "Review SAML parsing, signature validation, audience and recipient checks, replay controls, and identity mapping in a test IdP/SP."
+    },
+    {
+      "name": "offensive-session-fixation",
+      "category": "auth",
+      "path": "Skills/auth/offensive-session-fixation/SKILL.md",
+      "description": "Review session lifecycle controls for identifier rotation, cookie scope, and invalidation across login and privilege changes."
+    },
+    {
       "name": "offensive-cicd-pipeline",
       "category": "cicd",
       "path": "Skills/cicd/offensive-cicd-pipeline/SKILL.md",
@@ -177,6 +244,12 @@
       "category": "cicd",
       "path": "Skills/cicd/offensive-cicd-secrets/SKILL.md",
       "description": "Comprehensive secrets extraction methodology targeting CI/CD environments across all major platforms. Covers environment variable extraction from build contexts, exploitation of vault and secrets-manager misconfigurations (HashiCorp Vault, AWS Secrets Manager, Azure Key Vault, GCP Secret Manager), runner and agent token abuse for lateral movement, OIDC federation attacks exploiting trust relationships between CI/CD providers and cloud platforms, build log leakage analysis for inadvertently exposed credentials, cache poisoning techniques for credential exfiltration, platform-specific credential store exploitation (GitHub Actions secrets, GitLab CI variables, Jenkins credential providers), service connection and service account abuse in Azure DevOps and GCP, and Docker registry credential theft from build environments. Maps to MITRE ATT&CK T1552 (Unsecured Credentials) and its sub-techniques. Each section provides enumeration procedures, extraction techniques, and post-exploitation pivoting guidance for using recovered secrets to expand access."
+    },
+    {
+      "name": "offensive-claude-code-action",
+      "category": "cicd",
+      "path": "Skills/cicd/offensive-claude-code-action/SKILL.md",
+      "description": "Assess AI coding-agent workflows for untrusted input handling, least-privilege permissions, and safe tool execution."
     },
     {
       "name": "offensive-cloud",
@@ -201,6 +274,12 @@
       "category": "crypto",
       "path": "Skills/crypto/offensive-crypto-attacks/SKILL.md",
       "description": "Systematic methodology for identifying and exploiting cryptographic implementation weaknesses in real-world applications. Covers padding oracle attacks against CBC-mode ciphers with PKCS7 padding (Vaudenay's original attack through modern padbuster automation), ECB mode exploitation including block cut-and-paste and byte-at-a-time decryption, hash length extension attacks against SHA1/SHA256/MD5-based MACs using HashPump, RSA vulnerabilities including small public exponent, common modulus, Bleichenbacher PKCS1v1.5 padding oracle, and Coppersmith's method for partial key recovery. Addresses weak PRNG exploitation targeting time-seeded generators and Mersenne Twister MT19937 state recovery from observed outputs, timing side-channel attacks against comparison operations, nonce reuse in AES-GCM leading to authentication key recovery, and key derivation weaknesses including insufficient iteration counts and missing salts. Primary tooling includes padbuster, RsaCtfTool, hashpump, and PyCryptodome for building custom exploit payloads. Maps to CWE-327 (Use of a Broken or Risky Cryptographic Algorithm), CWE-328 (Use of Weak Hash), and CWE-330 (Use of Insufficiently Random Values). Emphasizes black-box identification of vulnerable implementations before transitioning to targeted exploitation."
+    },
+    {
+      "name": "offensive-padding-oracle",
+      "category": "crypto",
+      "path": "Skills/crypto/offensive-padding-oracle/SKILL.md",
+      "description": "Assess whether ciphertext handling leaks distinguishable padding or decryption validity in an isolated cryptographic test."
     },
     {
       "name": "offensive-tls-attacks",
@@ -374,13 +453,25 @@
       "name": "offensive-osint",
       "category": "recon",
       "path": "Skills/recon/offensive-osint/SKILL.md",
-      "description": "Comprehensive OSINT methodology skill for offensive security, red team intelligence gathering, and bug bounty reconnaissance. Covers domain recon, email harvesting, social media profiling, GitHub/code leaks, Shodan/Censys enumeration, breach data lookup, employee profiling, infrastructure mapping, cryptocurrency tracing, geospatial intelligence, and AI-assisted analysis workflows. Use when performing reconnaissance against a target domain or organization, investigating a person or entity, tracing cryptocurrency flows, geolocating images or events, or building an attack-surface map."
+      "description": "Organize public-source intelligence gathering with source provenance, confidence tracking, and privacy-aware reporting."
     },
     {
       "name": "offensive-osint-methodology",
       "category": "recon",
       "path": "Skills/recon/offensive-osint-methodology/SKILL.md",
       "description": ""
+    },
+    {
+      "name": "offensive-subdomain-takeover",
+      "category": "recon",
+      "path": "Skills/recon/offensive-subdomain-takeover/SKILL.md",
+      "description": "Identify dangling DNS or third-party service references and measure trust exposure without taking control of a live resource."
+    },
+    {
+      "name": "offensive-reverse-engineering",
+      "category": "reverse-engineering",
+      "path": "Skills/reverse-engineering/offensive-reverse-engineering/SKILL.md",
+      "description": "Provide a disciplined triage workflow for authorized binaries, combining static and dynamic evidence while tracking assumptions."
     },
     {
       "name": "offensive-phishing",
@@ -410,7 +501,7 @@
       "name": "offensive-fast-checking",
       "category": "utility",
       "path": "Skills/utility/offensive-fast-checking/SKILL.md",
-      "description": ""
+      "description": "Run a short, rate-limited assessment triage that prioritizes safe, high-signal checks within an explicit scope."
     },
     {
       "name": "offensive-reporting",
@@ -425,10 +516,46 @@
       "description": "Business logic vulnerability testing for web/mobile/API engagements. Covers workflow bypass, state machine violations, multi-step process abuse, price/quantity/discount manipulation, currency confusion, coupon stacking, refund/chargeback abuse, race conditions on logic boundaries, parameter tampering for hidden flows, role/tenant boundary violations, time-of-check vs use, anti-automation defeat, fraud-detection evasion, and subscription/quota abuse. Use when scoping an application after surface-level OWASP Top 10 has been covered, or when the asset is a transactional/marketplace/fintech/e-commerce/SaaS app where logic flaws produce direct financial impact."
     },
     {
+      "name": "offensive-clickjacking",
+      "category": "web",
+      "path": "Skills/web/offensive-clickjacking/SKILL.md",
+      "description": "Evaluate framing protections and whether a harmless framed interaction can mislead a test user."
+    },
+    {
+      "name": "offensive-cors",
+      "category": "web",
+      "path": "Skills/web/offensive-cors/SKILL.md",
+      "description": "Verify exact origin matching, credential behavior, preflight handling, and cache variation for authorized endpoints."
+    },
+    {
+      "name": "offensive-crlf-injection",
+      "category": "web",
+      "path": "Skills/web/offensive-crlf-injection/SKILL.md",
+      "description": "Determine whether input can inject response headers, split responses, or corrupt logs in an in-scope application."
+    },
+    {
+      "name": "offensive-csrf",
+      "category": "web",
+      "path": "Skills/web/offensive-csrf/SKILL.md",
+      "description": "Review whether a cross-site request can trigger a state change using a controlled account and harmless action."
+    },
+    {
       "name": "offensive-deserialization",
       "category": "web",
       "path": "Skills/web/offensive-deserialization/SKILL.md",
       "description": "Insecure deserialization exploitation across Java, PHP, .NET, Python, Node.js, and Ruby. Covers gadget chain construction with ysoserial/phpggc/ysoserial.net, ObjectInputStream and BinaryFormatter sink identification, pickle __reduce__ RCE, phar:// wrapper abuse, Jackson polymorphic typing, Json.NET TypeNameHandling, ViewState tampering, node-serialize IIFE injection, Ruby Marshal.load and YAML.load gadgets, framework-specific chains for Spring/Hibernate/Laravel/Symfony, modern attack surfaces including Kubernetes admission webhooks and message queue consumers, WAF bypass through encoding layers and content-type manipulation, and serialVersionUID/JMX/RMI vectors. Activate when the engagement involves deserialization sinks, serialized data in cookies or request bodies, gadget chain development, magic method abuse, ysoserial payload generation, or any review of marshalling and unmarshalling logic in target applications."
+    },
+    {
+      "name": "offensive-dom-clobbering",
+      "category": "web",
+      "path": "Skills/web/offensive-dom-clobbering/SKILL.md",
+      "description": "Identify attacker-controlled named elements that shadow expected DOM properties or globals and affect application behavior."
+    },
+    {
+      "name": "offensive-email-injection",
+      "category": "web",
+      "path": "Skills/web/offensive-email-injection/SKILL.md",
+      "description": "Assess whether user input can alter email headers, recipients, or message structure in an authorized mail workflow."
     },
     {
       "name": "offensive-file-upload",
@@ -449,6 +576,18 @@
       "description": ""
     },
     {
+      "name": "offensive-ldap-injection",
+      "category": "web",
+      "path": "Skills/web/offensive-ldap-injection/SKILL.md",
+      "description": "Check whether untrusted input changes LDAP filter or bind semantics in an authorized test environment."
+    },
+    {
+      "name": "offensive-nosql-injection",
+      "category": "web",
+      "path": "Skills/web/offensive-nosql-injection/SKILL.md",
+      "description": "Check whether input types or query operators alter document-database predicates or authorization decisions."
+    },
+    {
       "name": "offensive-open-redirect",
       "category": "web",
       "path": "Skills/web/offensive-open-redirect/SKILL.md",
@@ -459,6 +598,18 @@
       "category": "web",
       "path": "Skills/web/offensive-parameter-pollution/SKILL.md",
       "description": ""
+    },
+    {
+      "name": "offensive-path-traversal",
+      "category": "web",
+      "path": "Skills/web/offensive-path-traversal/SKILL.md",
+      "description": "Evaluate path normalization and confinement for file access routes using harmless, known test files."
+    },
+    {
+      "name": "offensive-prototype-pollution",
+      "category": "web",
+      "path": "Skills/web/offensive-prototype-pollution/SKILL.md",
+      "description": "Trace untrusted object keys through merge/clone paths and determine whether prototype mutation affects a benign application property."
     },
     {
       "name": "offensive-race-condition",
@@ -485,6 +636,12 @@
       "description": "SQL injection testing skill for offensive security assessments and bug bounty hunting. Covers error-based, UNION-based, boolean/time-based blind, out-of-band, second-order, NoSQL, GraphQL, WebSocket, and JSON-operator SQLi. Includes WAF bypass techniques, database-specific exploitation (MySQL, MSSQL, PostgreSQL, Oracle), cloud-native attack paths, ORM CVE tracking, and SQLmap automation. Use when performing web application SQL injection testing, database enumeration, privilege escalation via SQLi, or assessing injection vectors in APIs and modern stacks."
     },
     {
+      "name": "offensive-ssi",
+      "category": "web",
+      "path": "Skills/web/offensive-ssi/SKILL.md",
+      "description": "Assess whether untrusted input reaches SSI or ESI processing and can alter server-side fragment behavior."
+    },
+    {
       "name": "offensive-ssrf",
       "category": "web",
       "path": "Skills/web/offensive-ssrf/SKILL.md",
@@ -501,6 +658,12 @@
       "category": "web",
       "path": "Skills/web/offensive-waf-bypass/SKILL.md",
       "description": ""
+    },
+    {
+      "name": "offensive-web-cache-poisoning",
+      "category": "web",
+      "path": "Skills/web/offensive-web-cache-poisoning/SKILL.md",
+      "description": "Check cache key behavior and personalized-response handling with isolated cache namespaces and inert canaries."
     },
     {
       "name": "offensive-xss",
@@ -563,12 +726,6 @@
       "description": "Wi-Fi reconnaissance methodology — adapter selection, monitor mode and packet injection setup, regulatory domain handling, multi-band airspace mapping, hidden SSID discovery, BSSID/ESSID/channel/PMF/encryption fingerprinting, client probe analysis, vendor OUI lookup, war-driving with Kismet/airodump-ng/Wigle, and structured airspace data capture for downstream attacks. Use at the start of any wireless engagement to build the target map before active attacks; covers 2.4 GHz, 5 GHz, and 6 GHz (Wi-Fi 6E) bands and adapter compatibility for each."
     },
     {
-      "name": "offensive-wpa-enterprise",
-      "category": "wireless",
-      "path": "Skills/wireless/offensive-wpa-enterprise/SKILL.md",
-      "description": "WPA/WPA2/WPA3-Enterprise (802.1X / EAP) attack methodology — EAP method identification (PEAP-MSCHAPv2, EAP-TTLS, EAP-TLS, EAP-GTC, EAP-PWD, EAP-FAST), evil-twin RADIUS attacks with eaphammer for credential capture, MSCHAPv2 challenge-response cracking, EAP-TLS client certificate theft paths (DPAPI, NDES, AD CS auto-enrollment), supplicant validation bypass (missing server cert validation, missing CN pinning, BYOD misconfigurations), and post-capture pivots into AD via cracked domain credentials. Use for corporate Wi-Fi engagements where the network is 802.1X authenticated."
-    },
-    {
       "name": "offensive-wpa2-psk",
       "category": "wireless",
       "path": "Skills/wireless/offensive-wpa2-psk/SKILL.md",
@@ -581,24 +738,30 @@
       "description": "WPA3 / SAE (Simultaneous Authentication of Equals) attack methodology — transition-mode (mixed WPA2/WPA3) downgrade, Dragonblood side-channel attacks (CVE-2019-9494, 9495, 13377, 13456), SAE auth flooding for AP CPU exhaustion, Hash-to-Element (H2E) timing analysis, group downgrade, and 6 GHz / Wi-Fi 6E spec implications (PMF mandatory, no transition mode allowed). Use when target advertises WPA3-SAE or WPA3-Personal/Enterprise, or operates in 6 GHz where WPA3 + PMF are required by spec."
     },
     {
+      "name": "offensive-wpa-enterprise",
+      "category": "wireless",
+      "path": "Skills/wireless/offensive-wpa-enterprise/SKILL.md",
+      "description": "WPA/WPA2/WPA3-Enterprise (802.1X / EAP) attack methodology — EAP method identification (PEAP-MSCHAPv2, EAP-TTLS, EAP-TLS, EAP-GTC, EAP-PWD, EAP-FAST), evil-twin RADIUS attacks with eaphammer for credential capture, MSCHAPv2 challenge-response cracking, EAP-TLS client certificate theft paths (DPAPI, NDES, AD CS auto-enrollment), supplicant validation bypass (missing server cert validation, missing CN pinning, BYOD misconfigurations), and post-capture pivots into AD via cracked domain credentials. Use for corporate Wi-Fi engagements where the network is 802.1X authenticated."
+    },
+    {
       "name": "offensive-wps",
       "category": "wireless",
       "path": "Skills/wireless/offensive-wps/SKILL.md",
       "description": "WPS (Wi-Fi Protected Setup) PIN attack methodology — Pixie Dust offline attack against vulnerable chipsets (Ralink, Realtek, Broadcom, MediaTek), online PIN brute-force with reaver/bully, lockout handling, time-of-day evasion, WPS push-button vulnerability windows, and PIN-to-PSK derivation. Use when a target SOHO router exposes WPS — common on consumer ISP gear, often left enabled by default even when WPS attacks have been known for over a decade."
     },
     {
-      "name": "offensive-z-wave",
-      "category": "wireless",
-      "path": "Skills/wireless/offensive-z-wave/SKILL.md",
-      "description": "Z-Wave attack methodology — sniffing with Z-Force / EZ-Wave / RTL-SDR + ZniffMobile, S0 (legacy) network-key derivation flaw and key reuse, S2 (modern) ECDH commissioning analysis, replay/injection on unauthenticated nodes, default-key brute-force on test deployments, and home-automation hub pivots. Use when targeting Z-Wave smart home devices (door locks, sensors, garage controllers) — common in mid-2010s smart home deployments still in production."
-    },
-    {
       "name": "offensive-zigbee-thread-matter",
       "category": "wireless",
       "path": "Skills/wireless/offensive-zigbee-thread-matter/SKILL.md",
       "description": "Zigbee, Thread, and Matter mesh-protocol attack methodology — IEEE 802.15.4 sniffing with TI CC2531 / CC2540 / Sonoff Zigbee Dongle E, KillerBee toolkit, Touchlink commissioning abuse with the well-known transport key, replay/injection attacks, Zigbee Cluster Library command abuse for door locks and bulbs, Thread network credential theft, Matter commissioning chain analysis, and 6LoWPAN/IPv6 routing exploitation. Use when targeting smart-home or commercial mesh deployments, Zigbee-based door locks, lighting, or sensor networks."
+    },
+    {
+      "name": "offensive-z-wave",
+      "category": "wireless",
+      "path": "Skills/wireless/offensive-z-wave/SKILL.md",
+      "description": "Z-Wave attack methodology — sniffing with Z-Force / EZ-Wave / RTL-SDR + ZniffMobile, S0 (legacy) network-key derivation flaw and key reuse, S2 (modern) ECDH commissioning analysis, replay/injection on unauthenticated nodes, default-key brute-force on test deployments, and home-automation hub pivots. Use when targeting Z-Wave smart home devices (door locks, sensors, garage controllers) — common in mid-2010s smart home deployments still in production."
     }
   ],
-  "skill_count": 78,
-  "category_count": 23
+  "skill_count": 101,
+  "category_count": 24
 }

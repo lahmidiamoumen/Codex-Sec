@@ -7,8 +7,8 @@
 **Offensive security skills for Claude — drop-in `SKILL.md` files that turn Claude into a context-aware red team operator.**
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-78-red.svg)](#skill-index)
-[![Categories](https://img.shields.io/badge/categories-23-orange.svg)](#categories)
+[![Skills](https://img.shields.io/badge/skills-101-red.svg)](#skill-index)
+[![Categories](https://img.shields.io/badge/categories-24-orange.svg)](#categories)
 [![Stars](https://img.shields.io/github/stars/SnailSploit/claude-red?style=social)](https://github.com/SnailSploit/claude-red)
 [![Forks](https://img.shields.io/github/forks/SnailSploit/claude-red?style=social)](https://github.com/SnailSploit/claude-red/network/members)
 <a href="https://trendshift.io/repositories/40579?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-40579" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/40579/weekly?language=Python" alt="SnailSploit%2FClaude-Red | Trendshift" width="250" height="55"/></a>
@@ -73,9 +73,9 @@ Paste the contents of a `SKILL.md` into a Project's system prompt or prepend it 
 
 | Category | Skills | Focus |
 |---|---:|---|
-| [Web Application](#web-application) | 16 | OWASP Top 10, business logic, advanced web vulnerability classes |
-| [Auth & Identity](#auth--identity) | 2 | JWT exploitation, OAuth/OIDC abuse |
-| [Active Directory](#active-directory) | 1 | On-prem AD attack methodology |
+| [Web Application](#web-application) | 28 | OWASP Top 10, business logic, injection, browser, and cache vulnerabilities |
+| [Auth & Identity](#auth--identity) | 4 | JWT, OAuth/OIDC, SAML, and session lifecycle testing |
+| [Active Directory](#active-directory) | 4 | On-prem AD, AD CS, Kerberoasting, legacy accounts, and NetExec workflows |
 | [Wireless](#wireless) | 14 | 802.11, WPA2/3, EAP, WPS, evil-twin, BLE, Zigbee, Z-Wave, LoRa, sub-GHz |
 | [Cloud](#cloud) | 1 | AWS, Azure, GCP attack paths |
 | [Mobile](#mobile) | 1 | Android and iOS application testing |
@@ -83,18 +83,19 @@ Paste the contents of a `SKILL.md` into a Project's system prompt or prepend it 
 | [Infrastructure & Red Team](#infrastructure--red-team) | 7 | Initial access, EDR evasion, advanced red team operations, Windows internals |
 | [Exploit Development](#exploit-development) | 6 | Stack/heap corruption, ROP, mitigations, crash analysis, TOCTOU |
 | [Fuzzing & Vulnerability Research](#fuzzing--vulnerability-research) | 4 | libFuzzer, AFL++, coverage-guided fuzzing, vulnerability taxonomy |
-| [Reconnaissance](#reconnaissance) | 2 | OSINT tooling and structured intelligence collection |
-| [API Security](#api-security) | 2 | REST/gRPC/WebSocket testing, business logic abuse |
+| [Reconnaissance](#reconnaissance) | 3 | OSINT, structured intelligence, and dangling DNS review |
+| [API Security](#api-security) | 3 | REST/gRPC/WebSocket testing, mass assignment, business logic abuse |
 | [Container & Kubernetes](#container--kubernetes) | 2 | Container escape, Kubernetes cluster exploitation |
-| [CI/CD & Pipeline](#cicd--pipeline) | 2 | Pipeline exploitation, secrets extraction |
-| [Cryptography](#cryptography) | 2 | Cryptographic implementation attacks, TLS/SSL |
+| [CI/CD & Pipeline](#cicd--pipeline) | 3 | Pipeline, secrets, and AI coding-action security |
+| [Cryptography](#cryptography) | 3 | Cryptographic implementation, padding-oracle, and TLS/SSL review |
+| [Reverse Engineering](#reverse-engineering) | 1 | Isolated binary and malware triage |
 | [Privilege Escalation](#privilege-escalation) | 2 | Linux and Windows privilege escalation |
 | [Post-Exploitation](#post-exploitation) | 3 | Lateral movement, persistence mechanisms, data exfiltration |
 | [Forensics & C2](#forensics--c2) | 2 | Anti-forensics tradecraft, C2 framework operations |
 | [Supply Chain](#supply-chain) | 2 | Supply chain attacks, dependency confusion |
 | [Social Engineering](#social-engineering) | 2 | Phishing campaigns, physical/vishing/smishing |
 | [Network Attacks](#network-attacks) | 1 | Layer 2/3 attacks, MITM, protocol poisoning |
-| [AI Security](#ai-security) | 1 | Prompt injection, jailbreaking, RAG poisoning |
+| [AI Security](#ai-security) | 2 | Prompt injection, jailbreaks, RAG poisoning, and tool-boundary review |
 | [Utility](#utility) | 2 | Fast triage checklists, professional reporting |
 
 ---
@@ -123,6 +124,18 @@ Paste the contents of a `SKILL.md` into a Project's system prompt or prepend it 
 | [`offensive-graphql`](Skills/web/offensive-graphql/SKILL.md) | GraphQL — introspection abuse, batching attacks, alias-based IDOR |
 | [`offensive-waf-bypass`](Skills/web/offensive-waf-bypass/SKILL.md) | WAF bypass — encoding tricks, chunked transfer, case mutation |
 | [`offensive-business-logic`](Skills/web/offensive-business-logic/SKILL.md) | Business logic — workflow bypass, pricing abuse, multi-step chains |
+| [`offensive-email-injection`](Skills/web/offensive-email-injection/SKILL.md) | Email header injection — controlled mail-sink validation and recipient boundaries |
+| [`offensive-dom-clobbering`](Skills/web/offensive-dom-clobbering/SKILL.md) | DOM clobbering — named elements shadowing globals and affecting security-sensitive code |
+| [`offensive-ldap-injection`](Skills/web/offensive-ldap-injection/SKILL.md) | LDAP filter and bind injection — context-aware escaping and narrow validation |
+| [`offensive-crlf-injection`](Skills/web/offensive-crlf-injection/SKILL.md) | CRLF injection — response headers, response splitting, and log integrity |
+| [`offensive-path-traversal`](Skills/web/offensive-path-traversal/SKILL.md) | Path traversal and LFI — normalization, confinement, and canary-based checks |
+| [`offensive-ssi`](Skills/web/offensive-ssi/SKILL.md) | SSI/ESI injection — server-side fragment processing and trust boundaries |
+| [`offensive-nosql-injection`](Skills/web/offensive-nosql-injection/SKILL.md) | NoSQL injection — operator and type handling against synthetic records |
+| [`offensive-clickjacking`](Skills/web/offensive-clickjacking/SKILL.md) | Clickjacking — framing controls and safe interaction validation |
+| [`offensive-csrf`](Skills/web/offensive-csrf/SKILL.md) | CSRF — token, origin, cookie, and verified state-change checks |
+| [`offensive-web-cache-poisoning`](Skills/web/offensive-web-cache-poisoning/SKILL.md) | Web cache poisoning and deception — isolated cache namespaces and inert canaries |
+| [`offensive-prototype-pollution`](Skills/web/offensive-prototype-pollution/SKILL.md) | Prototype pollution — untrusted object keys and confirmed downstream effects |
+| [`offensive-cors`](Skills/web/offensive-cors/SKILL.md) | CORS — origin matching, credential behavior, preflight, and cache variation |
 
 ### Auth & Identity
 
@@ -132,6 +145,8 @@ Paste the contents of a `SKILL.md` into a Project's system prompt or prepend it 
 |---|---|
 | [`offensive-jwt`](Skills/auth/offensive-jwt/SKILL.md) | JWT attacks — alg:none, key confusion, secret cracking, claim tampering |
 | [`offensive-oauth`](Skills/auth/offensive-oauth/SKILL.md) | OAuth/OIDC — redirect URI abuse, token leakage, PKCE bypass |
+| [`offensive-session-fixation`](Skills/auth/offensive-session-fixation/SKILL.md) | Session lifecycle — identifier rotation, cookie scope, and invalidation |
+| [`offensive-saml`](Skills/auth/offensive-saml/SKILL.md) | SAML/SSO — signature, audience, replay, and identity-mapping checks |
 
 ### Active Directory
 
@@ -139,7 +154,10 @@ Paste the contents of a `SKILL.md` into a Project's system prompt or prepend it 
 
 | Skill | Description |
 |---|---|
-| [`offensive-active-directory`](Skills/active-directory/offensive-active-directory/SKILL.md) | AD methodology — Kerberoast, ASREProast, ACL abuse, ADCS ESC1-15, delegation, hybrid AAD |
+| [`offensive-active-directory`](Skills/active-directory/offensive-active-directory/SKILL.md) | AD methodology — Kerberoast, ASREProast, Pre2k, ACL abuse, ADCS, and delegation |
+| [`offensive-netexec`](Skills/active-directory/offensive-netexec/SKILL.md) | NetExec (nxc) — authorized service and authentication checks across SMB, LDAP, WinRM, and RDP |
+| [`offensive-adcs`](Skills/active-directory/offensive-adcs/SKILL.md) | AD CS — template enrollment, CA permissions, and lab-safe ESC validation |
+| [`offensive-kerberoasting`](Skills/active-directory/offensive-kerberoasting/SKILL.md) | Kerberoasting and AS-REP exposure — approved test identities and defender checks |
 
 ### Wireless
 
@@ -213,6 +231,14 @@ Paste the contents of a `SKILL.md` into a Project's system prompt or prepend it 
 | [`offensive-mitigations`](Skills/exploit-dev/offensive-mitigations/SKILL.md) | Modern mitigations — ASLR, CFG, CET, PAC analysis and bypass |
 | [`offensive-toctou`](Skills/exploit-dev/offensive-toctou/SKILL.md) | TOCTOU race conditions — binary, kernel, web, and container contexts |
 
+### Reverse Engineering
+
+`Skills/reverse-engineering/`
+
+| Skill | Description |
+|---|---|
+| [`offensive-reverse-engineering`](Skills/reverse-engineering/offensive-reverse-engineering/SKILL.md) | Binary reverse engineering and malware triage — isolated, reproducible static and dynamic analysis |
+
 ### Fuzzing & Vulnerability Research
 
 `Skills/fuzzing/`
@@ -230,8 +256,9 @@ Paste the contents of a `SKILL.md` into a Project's system prompt or prepend it 
 
 | Skill | Description |
 |---|---|
-| [`offensive-osint`](Skills/recon/offensive-osint/SKILL.md) | OSINT tooling — recon-ng, theHarvester, Maltego, Spiderfoot |
+| [`offensive-osint`](Skills/recon/offensive-osint/SKILL.md) | OSINT tooling — recon-ng, theHarvester, Maltego, Spiderfoot, and public-channel analysis |
 | [`offensive-osint-methodology`](Skills/recon/offensive-osint-methodology/SKILL.md) | OSINT methodology — structured intelligence collection and analysis |
+| [`offensive-subdomain-takeover`](Skills/recon/offensive-subdomain-takeover/SKILL.md) | Dangling DNS and service references — passive verification before any claim test |
 
 ### API Security
 
@@ -241,6 +268,7 @@ Paste the contents of a `SKILL.md` into a Project's system prompt or prepend it 
 |---|---|
 | [`offensive-api-security`](Skills/api/offensive-api-security/SKILL.md) | API testing — OWASP API Top 10, BOLA, BFLA, mass assignment, rate limiting |
 | [`offensive-api-abuse`](Skills/api/offensive-api-abuse/SKILL.md) | API business logic — endpoint chaining, batching abuse, webhook hijacking |
+| [`offensive-mass-assignment`](Skills/api/offensive-mass-assignment/SKILL.md) | Mass assignment — DTO allowlists and independent persistence verification |
 
 ### Container & Kubernetes
 
@@ -259,6 +287,7 @@ Paste the contents of a `SKILL.md` into a Project's system prompt or prepend it 
 |---|---|
 | [`offensive-cicd-pipeline`](Skills/cicd/offensive-cicd-pipeline/SKILL.md) | CI/CD exploitation — GitHub Actions injection, Jenkins RCE, GitLab CI abuse |
 | [`offensive-cicd-secrets`](Skills/cicd/offensive-cicd-secrets/SKILL.md) | CI/CD secrets — environment variable extraction, vault misconfigs, runner token abuse |
+| [`offensive-claude-code-action`](Skills/cicd/offensive-claude-code-action/SKILL.md) | Claude Code Action security — untrusted PR input, token scope, and tool permissions |
 
 ### Cryptography
 
@@ -268,6 +297,7 @@ Paste the contents of a `SKILL.md` into a Project's system prompt or prepend it 
 |---|---|
 | [`offensive-crypto-attacks`](Skills/crypto/offensive-crypto-attacks/SKILL.md) | Cryptographic attacks — padding oracle, ECB manipulation, hash extension, weak PRNG |
 | [`offensive-tls-attacks`](Skills/crypto/offensive-tls-attacks/SKILL.md) | TLS/SSL attacks — POODLE, DROWN, Heartbleed, pinning bypass, 0-RTT replay |
+| [`offensive-padding-oracle`](Skills/crypto/offensive-padding-oracle/SKILL.md) | CBC padding-oracle review — synthetic ciphertexts and distinguishable failures |
 
 ### Privilege Escalation
 
@@ -330,6 +360,7 @@ Paste the contents of a `SKILL.md` into a Project's system prompt or prepend it 
 | Skill | Description |
 |---|---|
 | [`offensive-ai-security`](Skills/ai/offensive-ai-security/SKILL.md) | AI/ML security — prompt injection, jailbreaking, RAG poisoning, model extraction |
+| [`offensive-prompt-injection`](Skills/ai/offensive-prompt-injection/SKILL.md) | Prompt injection — model/tool boundaries with synthetic canaries and mock tools |
 
 ### Utility
 
@@ -337,7 +368,7 @@ Paste the contents of a `SKILL.md` into a Project's system prompt or prepend it 
 
 | Skill | Description |
 |---|---|
-| [`offensive-fast-checking`](Skills/utility/offensive-fast-checking/SKILL.md) | Fast triage — quick-win identification checklists |
+| [`offensive-fast-checking`](Skills/utility/offensive-fast-checking/SKILL.md) | Rapid, rate-limited triage — high-signal checks within explicit scope |
 | [`offensive-reporting`](Skills/utility/offensive-reporting/SKILL.md) | Professional reporting — CVSS scoring, evidence standards, executive summaries |
 
 ---

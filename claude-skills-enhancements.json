@@ -1,0 +1,415 @@
+{
+  "repository": "SnailSploit/Claude-Red",
+  "generated_on": "2026-10-26",
+  "purpose": "Enhanced, concise JSON skill content derived from full SKILL.md files and open PR descriptions.",
+  "enhancement_method": "Each entry consolidates purpose, safe validation, defender acceptance checks, and false-positive controls. It is a structured enhancement layer for the source skills.",
+  "common_assessment_controls": [
+    "Confirm written authorization, target boundaries, accounts, methods, and time window before testing.",
+    "Prefer isolated labs, synthetic data, and reversible actions; make one controlled change per test.",
+    "Capture a baseline and independently verify any claimed effect; distinguish observation from inference.",
+    "Stop when a test reaches real-user data, external recipients, privileged access, destructive state, or an unapproved system.",
+    "Record cleanup and regression criteria so the owner can safely retest."
+  ],
+  "skills": [
+    {
+      "name": "offensive-mass-assignment",
+      "category": "api",
+      "pull_request": {
+        "number": 58,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/58",
+        "change": "added"
+      },
+      "source_file": "Skills/api/offensive-mass-assignment/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Assess whether an API binds client-controlled fields beyond the action’s intended DTO, and verify persistence through an authorized read-back.",
+        "safe_validation": "Use a disposable record and change one low-impact candidate at a time; verify the saved value independently; avoid privilege, ownership, billing, or production-state changes.",
+        "defender_acceptance": "Define request-specific DTOs, allowlist nested fields, map explicitly, and test that unauthorized attributes never persist.",
+        "interpretation_check": "An echoed request body or success status alone does not establish persistence."
+      }
+    },
+    {
+      "name": "offensive-session-fixation",
+      "category": "auth",
+      "pull_request": {
+        "number": 57,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/57",
+        "change": "added"
+      },
+      "source_file": "Skills/auth/offensive-session-fixation/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Review session lifecycle controls for identifier rotation, cookie scope, and invalidation across login and privilege changes.",
+        "safe_validation": "Use only a controlled test account and browser session; compare identifiers before and after login, logout, and role transitions; avoid real credentials or session reuse across users.",
+        "defender_acceptance": "Rotate identifiers at authentication and privilege changes, invalidate old identifiers, and set Secure, HttpOnly, and appropriate SameSite/domain/path attributes.",
+        "interpretation_check": "Distinguish a stable cookie value from a server-side session identifier; confirm old identifiers are rejected."
+      }
+    },
+    {
+      "name": "offensive-email-injection",
+      "category": "web",
+      "pull_request": {
+        "number": 56,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/56",
+        "change": "added"
+      },
+      "source_file": "Skills/web/offensive-email-injection/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Assess whether user input can alter email headers, recipients, or message structure in an authorized mail workflow.",
+        "safe_validation": "Use a mail sink or controlled mailbox; send one benign marker at a time; do not route messages to third parties or trigger bulk delivery.",
+        "defender_acceptance": "Reject CR/LF in header values, use structured recipient APIs, and keep user input in encoded message bodies.",
+        "interpretation_check": "A rendered newline in a body is not header injection; verify the raw message structure in the controlled sink."
+      }
+    },
+    {
+      "name": "offensive-dom-clobbering",
+      "category": "web",
+      "pull_request": {
+        "number": 55,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/55",
+        "change": "added"
+      },
+      "source_file": "Skills/web/offensive-dom-clobbering/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Identify attacker-controlled named elements that shadow expected DOM properties or globals and affect application behavior.",
+        "safe_validation": "Use a local fixture or isolated test page; add inert id/name markers and observe property resolution without data collection or external callbacks.",
+        "defender_acceptance": "Avoid security decisions based on mutable document properties; sanitize or constrain names and use explicit references and trusted configuration.",
+        "interpretation_check": "Confirm the clobbered property reaches a security-relevant sink; a name collision alone may have no impact."
+      }
+    },
+    {
+      "name": "offensive-ldap-injection",
+      "category": "web",
+      "pull_request": {
+        "number": 54,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/54",
+        "change": "added"
+      },
+      "source_file": "Skills/web/offensive-ldap-injection/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Check whether untrusted input changes LDAP filter or bind semantics in an authorized test environment.",
+        "safe_validation": "Use test identities and non-destructive boolean probes; keep queries narrow and avoid enumerating real users or extracting directory data.",
+        "defender_acceptance": "Use parameterized filter construction or RFC 4515 escaping appropriate to the filter context; apply least-privilege binds and strict input validation.",
+        "interpretation_check": "Separate filter injection from DN injection and verify a changed result predicate rather than relying on status codes."
+      }
+    },
+    {
+      "name": "offensive-crlf-injection",
+      "category": "web",
+      "pull_request": {
+        "number": 53,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/53",
+        "change": "added"
+      },
+      "source_file": "Skills/web/offensive-crlf-injection/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Determine whether input can inject response headers, split responses, or corrupt logs in an in-scope application.",
+        "safe_validation": "Use a unique inert marker against staging or a local fixture; inspect headers and controlled logs; avoid cache poisoning or cross-user log manipulation.",
+        "defender_acceptance": "Reject CR/LF in header fields, use framework header APIs, and encode structured log fields.",
+        "interpretation_check": "Encoded input reflected in a body is not header injection; confirm the marker lands in a distinct header or log field."
+      }
+    },
+    {
+      "name": "offensive-path-traversal",
+      "category": "web",
+      "pull_request": {
+        "number": 52,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/52",
+        "change": "added"
+      },
+      "source_file": "Skills/web/offensive-path-traversal/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Evaluate path normalization and confinement for file access routes using harmless, known test files.",
+        "safe_validation": "Use a disposable lab and a canary file created for the assessment; keep checks read-only; do not read secrets, include files, execute code, or access unrelated system paths.",
+        "defender_acceptance": "Canonicalize once, resolve beneath an allowed root, reject traversal after normalization, and avoid user-controlled wrapper or include schemes.",
+        "interpretation_check": "A blocked string or error message does not prove confinement; verify the resolved path or controlled canary result."
+      }
+    },
+    {
+      "name": "offensive-ssi",
+      "category": "web",
+      "pull_request": {
+        "number": 51,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/51",
+        "change": "added"
+      },
+      "source_file": "Skills/web/offensive-ssi/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Assess whether untrusted input reaches SSI or ESI processing and can alter server-side fragment behavior.",
+        "safe_validation": "Use a local or staging fixture with a harmless marker and controlled fragment endpoint; do not invoke command execution, internal network access, or data disclosure.",
+        "defender_acceptance": "Disable SSI execution, restrict SSI to deliberate file types, and enable ESI only for explicitly trusted origin responses.",
+        "interpretation_check": "A literal directive in a response may not be processed; establish which component parses it and under what conditions."
+      }
+    },
+    {
+      "name": "offensive-nosql-injection",
+      "category": "web",
+      "pull_request": {
+        "number": 50,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/50",
+        "change": "added"
+      },
+      "source_file": "Skills/web/offensive-nosql-injection/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Check whether input types or query operators alter document-database predicates or authorization decisions.",
+        "safe_validation": "Use a seeded test collection and synthetic accounts; test one predicate at a time; avoid broad enumeration, destructive writes, or server-side JavaScript execution.",
+        "defender_acceptance": "Construct queries from typed allowlisted fields and operators, disable server-side JavaScript where unnecessary, and enforce authorization independently of query shape.",
+        "interpretation_check": "Differentiate parser errors from changed query semantics; verify results only against synthetic records."
+      }
+    },
+    {
+      "name": "offensive-clickjacking",
+      "category": "web",
+      "pull_request": {
+        "number": 49,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/49",
+        "change": "added"
+      },
+      "source_file": "Skills/web/offensive-clickjacking/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Evaluate framing protections and whether a harmless framed interaction can mislead a test user.",
+        "safe_validation": "Use a dedicated test account and non-sensitive reversible action; record the frame behavior and stop before any real transfer, deletion, publication, or consent action.",
+        "defender_acceptance": "Set a restrictive CSP frame-ancestors, retain compatible legacy headers where needed, and test protection across sensitive routes.",
+        "interpretation_check": "Framability alone is not impact; assess whether a real user could be induced to perform a meaningful action."
+      }
+    },
+    {
+      "name": "offensive-padding-oracle",
+      "category": "crypto",
+      "pull_request": {
+        "number": 48,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/48",
+        "change": "added"
+      },
+      "source_file": "Skills/crypto/offensive-padding-oracle/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Assess whether ciphertext handling leaks distinguishable padding or decryption validity in an isolated cryptographic test.",
+        "safe_validation": "Use synthetic ciphertexts and disposable lab keys; compare uniform error behavior at a conservative rate; do not tamper with production tokens or attempt account/role forgery.",
+        "defender_acceptance": "Prefer AEAD, authenticate before decrypting, use constant-time validation, and return indistinguishable failures.",
+        "interpretation_check": "Timing noise and generic error differences can create false positives; repeat only in a controlled lab with stable baselines."
+      }
+    },
+    {
+      "name": "offensive-subdomain-takeover",
+      "category": "recon",
+      "pull_request": {
+        "number": 47,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/47",
+        "change": "added"
+      },
+      "source_file": "Skills/recon/offensive-subdomain-takeover/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Identify dangling DNS or third-party service references and measure trust exposure without taking control of a live resource.",
+        "safe_validation": "Use passive data and provider error signatures first; obtain explicit owner approval before any claim test; do not host content on a resource referenced by another organization.",
+        "defender_acceptance": "Remove DNS records before deprovisioning providers, monitor dangling records, and avoid broad cookie/CORS/CSP trust on subdomains.",
+        "interpretation_check": "NXDOMAIN or a provider-branded error is a candidate signal, not proof that the resource is safely claimable."
+      }
+    },
+    {
+      "name": "offensive-csrf",
+      "category": "web",
+      "pull_request": {
+        "number": 46,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/46",
+        "change": "added"
+      },
+      "source_file": "Skills/web/offensive-csrf/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Review whether a cross-site request can trigger a state change using a controlled account and harmless action.",
+        "safe_validation": "Use a test account and reversible preference or dummy record; verify token, origin, and cookie behavior; do not trigger payments, messaging, or destructive actions.",
+        "defender_acceptance": "Bind anti-CSRF tokens to the session, configure SameSite appropriately, validate Origin/Referer where suitable, and keep credentialed CORS narrowly allowlisted.",
+        "interpretation_check": "A cross-origin request that is sent is not necessarily readable or accepted; confirm a state change with an independent read-back."
+      }
+    },
+    {
+      "name": "offensive-prompt-injection",
+      "category": "ai",
+      "pull_request": {
+        "number": 45,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/45",
+        "change": "added"
+      },
+      "source_file": "Skills/ai/offensive-prompt-injection/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Evaluate how untrusted text, documents, or multimodal inputs influence model behavior and tool boundaries.",
+        "safe_validation": "Use an isolated model harness with synthetic canary data and mock tools; test one trust boundary at a time; do not access real secrets or external systems.",
+        "defender_acceptance": "Separate instructions from data, constrain tools and outputs, validate tool arguments, and require human approval for consequential actions.",
+        "interpretation_check": "A model quoting a canary does not by itself prove secret access; distinguish prompt disclosure from actual tool/data boundary failure."
+      }
+    },
+    {
+      "name": "offensive-saml",
+      "category": "auth",
+      "pull_request": {
+        "number": 44,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/44",
+        "change": "added"
+      },
+      "source_file": "Skills/auth/offensive-saml/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Review SAML parsing, signature validation, audience and recipient checks, replay controls, and identity mapping in a test IdP/SP.",
+        "safe_validation": "Use a synthetic tenant and test certificates; validate negative cases against a staging service; do not forge assertions for real accounts or production identity providers.",
+        "defender_acceptance": "Use hardened XML parsing, verify the exact assertion consumed, enforce issuer/audience/recipient/destination and InResponseTo, and prevent replay.",
+        "interpretation_check": "A signature may be valid for one XML node while the application consumes another; verify the application’s identity decision path."
+      }
+    },
+    {
+      "name": "offensive-web-cache-poisoning",
+      "category": "web",
+      "pull_request": {
+        "number": 43,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/43",
+        "change": "added"
+      },
+      "source_file": "Skills/web/offensive-web-cache-poisoning/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Check cache key behavior and personalized-response handling with isolated cache namespaces and inert canaries.",
+        "safe_validation": "Use staging or an approved cache namespace, synthetic content, and a purge plan; never poison shared production caches or expose authenticated content.",
+        "defender_acceptance": "Key all response-varying inputs, avoid caching personalized responses, set correct Vary and cache directives, and isolate tenants.",
+        "interpretation_check": "A reflected header is not a cache issue until a repeat request demonstrates shared cache reuse under the relevant key."
+      }
+    },
+    {
+      "name": "offensive-prototype-pollution",
+      "category": "web",
+      "pull_request": {
+        "number": 42,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/42",
+        "change": "added"
+      },
+      "source_file": "Skills/web/offensive-prototype-pollution/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Trace untrusted object keys through merge/clone paths and determine whether prototype mutation affects a benign application property.",
+        "safe_validation": "Use a toy service or isolated build and an inert test key; avoid RCE gadgets, destructive denial-of-service probes, and persistent changes.",
+        "defender_acceptance": "Use safe merge routines, schema validation, Map or null-prototype objects where appropriate, and freeze or avoid shared prototypes.",
+        "interpretation_check": "A key appearing in input is not prototype pollution; confirm mutation and a controlled downstream effect separately."
+      }
+    },
+    {
+      "name": "offensive-cors",
+      "category": "web",
+      "pull_request": {
+        "number": 41,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/41",
+        "change": "added"
+      },
+      "source_file": "Skills/web/offensive-cors/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Verify exact origin matching, credential behavior, preflight handling, and cache variation for authorized endpoints.",
+        "safe_validation": "Use an origin you control and a synthetic non-sensitive endpoint; inspect headers without collecting user data or sending credentials to an external collector.",
+        "defender_acceptance": "Use exact origin allowlists, avoid credentialed wildcard/reflection behavior, and set Vary: Origin when responses vary.",
+        "interpretation_check": "Access-Control-Allow-Origin alone does not establish readable cross-origin data; credentials and browser behavior matter."
+      }
+    },
+    {
+      "name": "offensive-adcs",
+      "category": "active-directory",
+      "pull_request": {
+        "number": 40,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/40",
+        "change": "added"
+      },
+      "source_file": "Skills/active-directory/offensive-adcs/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Inventory AD CS templates, enrollment paths, and CA permissions to identify certificate-misconfiguration risk in an authorized lab or engagement.",
+        "safe_validation": "Start with read-only enumeration; use synthetic principals and an isolated lab for enrollment proofs; do not impersonate privileged identities, relay production authentication, or alter CA/template settings without explicit approval.",
+        "defender_acceptance": "Restrict enrollment and template ACLs, remove unnecessary SAN or enrollment-agent capabilities, harden web enrollment and relay exposure, and audit CA permissions.",
+        "interpretation_check": "A scanner’s ESC label is a candidate; validate prerequisites and actual effective permissions before rating impact."
+      }
+    },
+    {
+      "name": "offensive-kerberoasting",
+      "category": "active-directory",
+      "pull_request": {
+        "number": 39,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/39",
+        "change": "added"
+      },
+      "source_file": "Skills/active-directory/offensive-kerberoasting/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Review service-ticket and pre-authentication exposure and assess service-account password resilience in approved test infrastructure.",
+        "safe_validation": "Prefer read-only inventory; request only explicitly approved test-account tickets; do not modify production SPNs or crack real users’ credentials.",
+        "defender_acceptance": "Use long unique service-account secrets or managed service accounts, minimize SPNs and privileges, require pre-authentication, and monitor unusual ticket requests.",
+        "interpretation_check": "Encryption type alone does not establish exploitability; confirm account ownership, password policy, and decoy controls."
+      }
+    },
+    {
+      "name": "offensive-reverse-engineering",
+      "category": "reverse-engineering",
+      "pull_request": {
+        "number": 38,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/38",
+        "change": "added"
+      },
+      "source_file": "Skills/reverse-engineering/offensive-reverse-engineering/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Provide a disciplined triage workflow for authorized binaries, combining static and dynamic evidence while tracking assumptions.",
+        "safe_validation": "Analyze samples in an isolated VM with snapshots and restricted networking; record hashes and provenance; do not execute unknown files on a production host.",
+        "defender_acceptance": "Use reproducible evidence, document tool versions, separate observed behavior from inference, and hand off actionable remediation indicators.",
+        "interpretation_check": "Strings and decompiler output are hypotheses; corroborate important claims with control-flow or sandbox behavior."
+      }
+    },
+    {
+      "name": "offensive-claude-code-action",
+      "category": "cicd",
+      "pull_request": {
+        "number": 37,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/37",
+        "change": "added"
+      },
+      "source_file": "Skills/cicd/offensive-claude-code-action/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Assess AI coding-agent workflows for untrusted input handling, least-privilege permissions, and safe tool execution.",
+        "safe_validation": "Use an isolated fork or test repository with dummy secrets, no write permissions, and no cloud identity; prove behavior with inert markers only.",
+        "defender_acceptance": "Avoid executing untrusted PR content with privileged tokens, restrict tool allowlists and network access, protect context files, and gate writes with human review.",
+        "interpretation_check": "A prompt response is not proof of command execution or secret exposure; distinguish model output from verified side effects."
+      }
+    },
+    {
+      "name": "offensive-osint",
+      "category": "recon",
+      "pull_request": {
+        "number": 35,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/35",
+        "change": "updated"
+      },
+      "source_file": "Skills/recon/offensive-osint/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Organize public-source intelligence gathering with source provenance, confidence tracking, and privacy-aware reporting.",
+        "safe_validation": "Use public or consented sources, respect platform and engagement rules, minimize collection, and do not seek account access or expose personal data unnecessarily.",
+        "defender_acceptance": "Document collection purpose and retention, validate claims across independent sources, and redact irrelevant personal information.",
+        "interpretation_check": "Treat usernames, profile matches, and breach references as leads until independently corroborated."
+      }
+    },
+    {
+      "name": "offensive-fast-checking",
+      "category": "utility",
+      "pull_request": {
+        "number": 18,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/18",
+        "change": "updated"
+      },
+      "source_file": "Skills/utility/offensive-fast-checking/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Run a short, rate-limited assessment triage that prioritizes safe, high-signal checks within an explicit scope.",
+        "safe_validation": "Confirm the target list and rate limits; start with passive or read-only checks; stop on instability, unexpected data access, or any test that could change state.",
+        "defender_acceptance": "Pair rapid checks with safe defaults, clear timeouts, allowlisted targets, and escalation to a deeper authorized review for ambiguous results.",
+        "interpretation_check": "A fast scan is triage, not a complete assessment; report untested areas and confidence."
+      }
+    },
+    {
+      "name": "offensive-active-directory",
+      "category": "active-directory",
+      "pull_request": {
+        "number": 14,
+        "url": "https://github.com/SnailSploit/Claude-Red/pull/14",
+        "change": "updated"
+      },
+      "source_file": "Skills/active-directory/offensive-active-directory/SKILL.md",
+      "enhanced_content": {
+        "purpose": "Assess Active Directory identity, delegation, ACL, and legacy compatibility risks, including Pre-Windows 2000 computer-account exposure.",
+        "safe_validation": "Use read-only enumeration first and an isolated domain for credential-validation proofs; do not reuse discovered credentials or change memberships, ACLs, or account attributes in production.",
+        "defender_acceptance": "Restrict legacy group access, ensure machine-account secrets are strong and rotated, remove unnecessary delegation, and audit privileged ACL paths.",
+        "interpretation_check": "Treat legacy account indicators as candidates; verify current group membership, account state, and practical access with approved test identities."
+      }
+    }
+  ]
+}
